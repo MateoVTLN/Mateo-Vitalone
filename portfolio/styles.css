@@ -1,0 +1,195 @@
+/* =========================
+GENERAL
+========================= */
+
+body{
+    margin:0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background:#0b0b0c;
+    color:#e6e6e6;
+}
+
+main{
+    max-width:950px;
+    margin:auto;
+    padding:60px 25px;
+}
+
+a{
+    color:#69a9ff;
+    text-decoration:none;
+}
+
+a:hover{
+    opacity:0.8;
+}
+
+
+
+/* =========================
+HEADER
+========================= */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:#111;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.logo-img{
+    height:28px;
+}
+
+header nav a{
+    margin-left:20px;
+}
+
+nav a:hover{
+    color:#4da3ff;
+}
+
+.header-icons img{
+    width:22px;
+    margin-left:15px;
+}
+
+
+
+/* =========================
+INTRO
+========================= */
+
+.intro{
+    margin-bottom:60px;
+}
+
+.intro h1{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.intro p{
+    max-width:750px;
+    line-height:1.7;
+    color:#cfcfcf;
+}
+
+
+
+/* =========================
+TIMELINE
+========================= */
+
+.timeline{
+    position:relative;
+    margin-top:60px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:20px;
+    top:0;
+    width:2px;
+    height:100%;
+    background:#333;
+}
+
+.timeline-item{
+    position:relative;
+    margin-left:60px;
+    margin-bottom:45px;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    left:-42px;
+    top:5px;
+    width:12px;
+    height:12px;
+    background:#69a9ff;
+    border-radius:50%;
+}
+
+.year{
+    font-weight:bold;
+    color:#69a9ff;
+}
+
+.timeline-item h3{
+    margin:5px 0;
+}
+
+.timeline-item p{
+    color:#bfbfbf;
+}
+
+
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+    margin-top:80px;
+    text-align:center;
+    padding:30px;
+    background:#111;
+}
+
+.footer-logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.footer-icons img{
+    width:20px;
+    margin:0 8px;
+}
+
+footer p{
+    font-size:12px;
+    font-style:italic;
+    color:#999;
+}
+
+
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:700px){
+
+header{
+flex-direction:column;
+gap:10px;
+}
+
+.timeline::before{
+left:10px;
+}
+
+.timeline-item{
+margin-left:40px;
+}
+
+.timeline-item::before{
+left:-32px;
+}
+
+}
