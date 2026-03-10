@@ -50,26 +50,45 @@ MAIN CONTENT
 
 <main>
 
-<section id="activities">
-  <h2>Latest Activities</h2>
-  <div id="activity-list"></div>
+<section style="margin-top:60px;">
+
+    <h2>Latest Activities</h2>
+
+    <div class="activity-grid" id="activity-list">
+        <p style="color:#bfbfbf;">Loading activities...</p>
+    </div>
+
 </section>
 
 <script>
 fetch("activities.json")
-  .then(r => r.json())
-  .then(activities => {
-    const container = document.getElementById("activity-list");
-    activities.forEach(a => {
-      const km = (a.distance / 1000).toFixed(1);
-      const date = new Date(a.start_date).toLocaleDateString();
-      container.innerHTML += `
-        <div class="activity-card">
-          <strong>${a.name}</strong> — ${a.type}<br>
-          ${km} km &nbsp;|&nbsp; ${date}
-        </div>`;
+    .then(r => r.json())
+    .then(activities => {
+        const container = document.getElementById("activity-list");
+        container.innerHTML = "";
+        activities.forEach(a => {
+            const km    = (a.distance / 1000).toFixed(1);
+            const date  = new Date(a.start_date).toLocaleDateString("fr-FR");
+            const mins  = Math.floor(a.moving_time / 60);
+            const secs  = String(a.moving_time % 60).padStart(2, "0");
+            const elev  = a.total_elevation_gain;
+            container.innerHTML += `
+                <div class="activity-card">
+                    <div class="activity-type">${a.type}</div>
+                    <h4>${a.name}</h4>
+                    <div class="activity-meta">
+                        <span>📍 ${km} km</span>
+                        <span>⏱ ${mins}:${secs}</span>
+                        <span>⬆ ${elev} m</span>
+                        <span>📅 ${date}</span>
+                    </div>
+                </div>`;
+        });
+    })
+    .catch(() => {
+        document.getElementById("activity-list").innerHTML =
+            "<p style='color:#bfbfbf;'>Could not load activities.</p>";
     });
-  });
 </script>
 
 </main>
