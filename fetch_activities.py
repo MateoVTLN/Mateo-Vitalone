@@ -1,5 +1,5 @@
 import requests, json
-
+import os
 # Get a fresh access token
 auth = requests.post("https://www.strava.com/oauth/token", data={
     "client_id":     os.environ["STRAVA_CLIENT_ID"],
