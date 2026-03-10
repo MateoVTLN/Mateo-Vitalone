@@ -7,169 +7,517 @@
 <link rel="icon" type="image/png" href="icons/logo_mv.png">
 <link rel="stylesheet" href="styles.css">
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+/* =========================
+PROJECTS GRID — 3 COLUMNS
+========================= */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.project-card {
+    background: #1a1a1c;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(105, 169, 255, 0.15);
+}
+
+.project-card .card-img-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.project-card .card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .card-img-wrap img {
+    transform: scale(1.05);
+}
+
+.project-card .card-body {
+    padding: 18px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project-card h3 {
+    font-size: 15px;
+    margin: 0 0 10px 0;
+    color: #e6e6e6;
+    line-height: 1.4;
+}
+
+.project-card p {
+    font-size: 13px;
+    color: #bfbfbf;
+    line-height: 1.6;
+    flex: 1;
+    margin: 0 0 14px 0;
+}
+
+.project-card a.read-more {
+    font-size: 13px;
+    color: #69a9ff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.project-card a.read-more:hover {
+    opacity: 0.75;
+}
+
+/* =========================
+SPORT PREVIEW
+========================= */
+
+.sport-preview {
+    margin-top: 70px;
+}
+
+.sport-preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.sport-preview-header a {
+    font-size: 13px;
+    color: #69a9ff;
+}
+
+.activities-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.activity-card-small {
+    background: #1a1a1c;
+    border-radius: 8px;
+    padding: 16px 18px;
+    border-left: 3px solid #FC4C02;
+}
+
+.activity-card-small .act-type {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FC4C02;
+    margin-bottom: 6px;
+    letter-spacing: 0.06em;
+}
+
+.activity-card-small .act-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e6e6e6;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.activity-card-small .act-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #bfbfbf;
+}
+
+.strava-link-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 20px;
+    background: #1a1a1c;
+    border-radius: 8px;
+    padding: 14px 20px;
+}
+
+.strava-link-banner img {
+    height: 28px;
+}
+
+.strava-link-banner span {
+    font-size: 13px;
+    color: #bfbfbf;
+}
+
+.strava-link-banner a.strava-profile-link {
+    margin-left: auto;
+    font-size: 13px;
+    color: #FC4C02;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* =========================
+CAROUSEL
+========================= */
+
+.carousel-section {
+    margin-top: 70px;
+}
+
+.carousel-section h2 {
+    margin-bottom: 24px;
+}
+
+.carousel-outer {
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #111;
+    aspect-ratio: 16 / 7;
+}
+
+.carousel-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-inner img,
+.carousel-inner video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.carousel-inner img.active,
+.carousel-inner video.active {
+    opacity: 1;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.55);
+    border: none;
+    color: #e6e6e6;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.carousel-btn:hover {
+    background: rgba(105,169,255,0.35);
+}
+
+.carousel-btn.prev { left: 14px; }
+.carousel-btn.next { right: 14px; }
+
+.carousel-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 10;
+}
+
+.carousel-dots span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.carousel-dots span.active {
+    background: #69a9ff;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width: 750px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    .activities-strip {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
+
 <body>
-<!-- =========================
-HEADER
-========================= -->
 
+<!-- HEADER -->
 <header>
-
 <div class="logo">
-<img src="icons\logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-<span>Matéo VITALONE</span>
+    <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+    <span>Matéo VITALONE</span>
 </div>
-
 <nav>
-
-<a href="index.html">Home</a>
-<a href="biblio.html">Bibliography</a>
-<a href="project1.html">Project 1</a>
-<a href="project2.html">Project 2</a>
-<a href="project3.html">Project 3</a>
-<a href="sport.html">Sport</a>
-
-
-<!-- Future additions -->
-<!-- <a href="project4.html">Project 4</a> -->
-<!-- <a href="research.html">Research</a> -->
-<!-- <a href="teaching.html">Teaching</a> -->
-<!-- <a href="contact.html">Contact</a> -->
-
+    <a href="index.html">Home</a>
+    <a href="biblio.html">About me</a>
+    <a href="project1.html">Project 1</a>
+    <a href="project2.html">Project 2</a>
+    <a href="project3.html">Project 3</a>
+    <a href="sport.html">Sport</a>
 </nav>
-
 <div class="header-icons">
-
-<a href="https://www.linkedin.com/" target="_blank">
-<img src="icons\linkedinlogo.webp" alt="LinkedIn">
-</a>
-
+    <a href="https://www.linkedin.com/" target="_blank">
+        <img src="icons/linkedinlogo.webp" alt="LinkedIn">
+    </a>
 </div>
-
 </header>
 
-
-
-<!-- =========================
-MAIN CONTENT
-========================= -->
-
+<!-- MAIN -->
 <main>
 
+<!-- INTRO -->
 <section class="intro">
+    <h1>Portfolio</h1>
+    <br>
+    <p>This website presents a selection of projects developed by Matéo Vitalone.
+    The purpose of this portfolio is to showcase work related to signal processing,
+    sound engineering, acoustics, machine learning for audio, and electronic design.</p>
+    <br>
+    <p>Each section contains a short overview and links to detailed project pages,
+    including technical descriptions, implementation details, and results.</p>
+</section>
 
-<h1>Portfolio</h1>
+<!-- PROJECTS — 3 COLUMNS -->
+<section>
+    <h2>Some of my past projects</h2>
+    <br>
+    <div class="project-grid">
 
-<br>
+        <div class="project-card">
+            <div class="card-img-wrap">
+                <img src="images/project1.jpg" alt="Project 1">
+            </div>
+            <div class="card-body">
+                <h3>Neural Network Model for Music Genre Classification</h3>
+                <p>Audio machine learning project focused on music genre classification
+                using neural networks and spectral representations.</p>
+                <a href="project1.html" class="read-more">Read more →</a>
+            </div>
+        </div>
 
-<p>
-This website presents a selection of projects developed by Matéo Vitalone.
-The purpose of this portfolio is to showcase work related to
-signal processing, sound engineering, acoustics, machine learning for audio,
-and electronic design.
-</p>
+        <div class="project-card">
+            <div class="card-img-wrap">
+                <img src="images/project2.jpg" alt="Project 2">
+            </div>
+            <div class="card-body">
+                <h3>Project 2</h3>
+                <p>Electronic and electroacoustic system design including amplifier
+                topologies and signal chain optimization.</p>
+                <a href="project2.html" class="read-more">Read more →</a>
+            </div>
+        </div>
 
-<br>
+        <div class="project-card">
+            <div class="card-img-wrap">
+                <img src="images/project3.jpg" alt="Project 3">
+            </div>
+            <div class="card-body">
+                <h3>Project 3</h3>
+                <p>Acoustic modelling and vibration analysis of multi-degree-of-freedom
+                mechanical systems.</p>
+                <a href="project3.html" class="read-more">Read more →</a>
+            </div>
+        </div>
 
-<p>
-Each section contains a short overview and links to detailed project pages,
-including technical descriptions, implementation details, and results.
-</p>
+    </div>
+</section>
+
+<!-- SPORT PREVIEW -->
+<section class="sport-preview">
+
+    <div class="sport-preview-header">
+        <h2>Latest Activities</h2>
+        <a href="sport.html">See all →</a>
+    </div>
+
+    <div class="activities-strip" id="home-activity-list">
+        <p style="color:#bfbfbf; font-size:13px;">Loading activities...</p>
+    </div>
+
+    <div class="strava-link-banner">
+        <a href="https://www.strava.com/athletes/159947739" target="_blank">
+            <img src="icons/strava_logo.png" alt="Strava">
+        </a>
+        <span>Follow my training on Strava</span>
+        <a class="strava-profile-link" href="https://www.strava.com/athletes/159947739" target="_blank">View profile →</a>
+    </div>
 
 </section>
 
-
-
-<section>
-
-<h2>Some of my past projects</h2>
-
-<br><br>
-
-<div class="project-grid">
-
-
-<div class="project-card">
-
-<img src="images/project1.jpg" alt="Project 1 image">
-
-<h3>Neural Network Model for Music Genre Classification</h3>
-
-<p>
-Audio machine learning project focused on music genre classification
-using neural networks and spectral representations.
-</p>
-
-<a href="project1.html">Read more →</a>
-
-</div>
-
-<div class="project-card">
-
-<img src="images/project2.jpg" alt="Project 2 image">
-
-<h3>Project 2</h3>
-
-<p>
-Electronic and electroacoustic system design including amplifier
-topologies and signal chain optimization.
-</p>
-
-<a href="project2.html">Read more →</a>
-
-</div>
-
-<div class="project-card">
-
-<img src="images/project3.jpg" alt="Project 3 image">
-
-<h3>Project 3</h3>
-
-<p>
-Acoustic modelling and vibration analysis of multi-degree-of-freedom
-mechanical systems.
-</p>
-
-<a href="project3.html">Read more →</a>
-
-</div>
-
-</div>
-
+<!-- GALLERY CAROUSEL -->
+<section class="carousel-section">
+    <h2>Gallery</h2>
+    <div class="carousel-outer">
+        <div class="carousel-inner" id="carousel-inner"></div>
+        <button class="carousel-btn prev" id="carousel-prev">&#10094;</button>
+        <button class="carousel-btn next" id="carousel-next">&#10095;</button>
+        <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
 </section>
 
 </main>
 
-
-
-<!-- =========================
-FOOTER
-========================= -->
-
+<!-- FOOTER -->
 <footer>
-
 <div class="footer-logo">
-<img src="icons\logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-<strong>Matéo VITALONE</strong>
+    <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+    <strong>Matéo VITALONE</strong>
 </div>
-
 <div class="footer-icons">
-
-<a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank">
-<img src="icons\linkedinlogo.webp" alt="LinkedIn">
-</a>
-
-<a href="https://github.com/MateoVTLN?tab=repositories" target="_blank">
-<img src="icons\githublogo.png" alt="GitHub">
-</a>
-
+    <a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank">
+        <img src="icons/linkedinlogo.webp" alt="LinkedIn">
+    </a>
+    <a href="https://github.com/MateoVTLN?tab=repositories" target="_blank">
+        <img src="icons/githublogo.png" alt="GitHub">
+    </a>
 </div>
-
-<p>
-Matéo Vitalone Portfolio GitHub page, updated in March 2026
-</p>
-
+<p>Matéo Vitalone Portfolio GitHub page, updated in March 2026</p>
 </footer>
+
+<!-- SCRIPTS -->
+<script>
+
+/* ── STRAVA PREVIEW (3 latest) ── */
+fetch("activities.json")
+    .then(r => r.json())
+    .then(activities => {
+        const container = document.getElementById("home-activity-list");
+        container.innerHTML = "";
+        activities.slice(0, 3).forEach(a => {
+            const km   = (a.distance / 1000).toFixed(1);
+            const date = new Date(a.start_date).toLocaleDateString("fr-FR");
+            const mins = Math.floor(a.moving_time / 60);
+            const secs = String(a.moving_time % 60).padStart(2, "0");
+            container.innerHTML += `
+                <div class="activity-card-small">
+                    <div class="act-type">${a.type}</div>
+                    <div class="act-name">${a.name}</div>
+                    <div class="act-meta">
+                        <span>📍 ${km} km</span>
+                        <span>⏱ ${mins}:${secs}</span>
+                        <span>📅 ${date}</span>
+                    </div>
+                </div>`;
+        });
+    })
+    .catch(() => {
+        document.getElementById("home-activity-list").innerHTML =
+            "<p style='color:#bfbfbf;font-size:13px;'>Could not load activities.</p>";
+    });
+
+/* ── CAROUSEL ── */
+
+// ↓ Replace / extend with your own image and video paths
+const carouselMedia = [
+    "images/project1.jpg",
+    "images/project2.jpg",
+    "images/project3.jpg"
+    // e.g. "IMG/photo.jpg", "IMG/video.mp4"
+];
+
+(function initCarousel() {
+    const inner   = document.getElementById("carousel-inner");
+    const dotsBox = document.getElementById("carousel-dots");
+    const btnPrev = document.getElementById("carousel-prev");
+    const btnNext = document.getElementById("carousel-next");
+
+    if (!carouselMedia.length) return;
+
+    const shuffled = [...carouselMedia].sort(() => Math.random() - 0.5);
+    let current = 0;
+    let autoTimer;
+
+    shuffled.forEach(src => {
+        let el;
+        if (src.endsWith(".mp4") || src.endsWith(".webm")) {
+            el = document.createElement("video");
+            el.src = src;
+            el.muted = true;
+            el.playsInline = true;
+        } else {
+            el = document.createElement("img");
+            el.src = src;
+            el.alt = "";
+        }
+        inner.appendChild(el);
+
+        const dot = document.createElement("span");
+        dotsBox.appendChild(dot);
+    });
+
+    const items  = inner.querySelectorAll("img, video");
+    const dotEls = dotsBox.querySelectorAll("span");
+
+    function show(index) {
+        items.forEach(el => {
+            el.classList.remove("active");
+            if (el.tagName === "VIDEO") { el.pause(); el.currentTime = 0; }
+        });
+        dotEls.forEach(d => d.classList.remove("active"));
+        items[index].classList.add("active");
+        dotEls[index].classList.add("active");
+        clearTimeout(autoTimer);
+        if (items[index].tagName === "VIDEO") {
+            items[index].play().catch(() => {});
+            items[index].onended = () => step(1);
+        } else {
+            autoTimer = setTimeout(() => step(1), 5000);
+        }
+    }
+
+    function step(dir) {
+        current = (current + dir + shuffled.length) % shuffled.length;
+        show(current);
+    }
+
+    btnPrev.addEventListener("click", () => step(-1));
+    btnNext.addEventListener("click", () => step(1));
+    dotEls.forEach((d, i) => d.addEventListener("click", () => { current = i; show(i); }));
+
+    show(0);
+})();
+
+</script>
 
 </body>
 </html>

@@ -232,3 +232,31 @@ SPORT ACTIVITIES
     text-transform: uppercase;
     margin-bottom: 8px;
 }
+/* =========================
+STRAVA PROFILE
+========================= */
+
+.strava-banner{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #1a1a1c;
+    border-radius: 8px;
+    padding: 20px 25px;
+    margin-bottom: 40px;
+    border-left: 3px solid #FC4C02;
+}
+
+.strava-banner img{
+    width: 120px;
+}
+
+.strava-banner p{
+    color: #bfbfbf;
+    line-height: 1.6;
+    margin: 5px 0 0 0;
+}
+
+.strava-banner h3{
+    margin: 0 0 5px 0;
+}
