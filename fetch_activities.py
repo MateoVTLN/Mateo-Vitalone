@@ -1,5 +1,5 @@
+print("FILE LOADED")
 import requests, json, os
-
 print("imports OK")
 print("CLIENT_ID set:", "STRAVA_CLIENT_ID" in os.environ)
 print("CLIENT_SECRET set:", "STRAVA_CLIENT_SECRET" in os.environ)
