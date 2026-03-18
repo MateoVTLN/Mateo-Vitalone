@@ -31,6 +31,8 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
+          git fetch origin main
+          git reset --hard origin/main
           git add activities.json
           git diff --cached --quiet || git commit -m "Update Strava activities"
-          git push --force-with-lease
+          git push origin main
