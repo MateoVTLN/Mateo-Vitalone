@@ -7,6 +7,21 @@
 <link rel="icon" type="image/png" href="icons\logo_MV.png">
 <link rel="stylesheet" href="styles.css">
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+<style>
+  .activity-map {
+    height: 180px;
+    margin-top: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+</style>
 </head>
 <body>
 
@@ -64,33 +79,104 @@ MAIN CONTENT
 </section>
 
 <script>
+// Polyline decoder (Google/Strava style)
+function decodePolyline(str, precision = 5) {
+    let index = 0, lat = 0, lng = 0, coordinates = [];
+    const factor = Math.pow(10, precision);
+
+    while (index < str.length) {
+    let b, shift = 0, result = 0;
+    do {
+        b = str.charCodeAt(index++) - 63;
+        result |= (b & 0x1f) << shift;
+        shift += 5;
+    } while (b >= 0x20);
+    const deltaLat = (result & 1) ? ~(result >> 1) : (result >> 1);
+    lat += deltaLat;
+
+    shift = 0;
+    result = 0;
+    do {
+        b = str.charCodeAt(index++) - 63;
+        result |= (b & 0x1f) << shift;
+        shift += 5;
+    } while (b >= 0x20);
+    const deltaLng = (result & 1) ? ~(result >> 1) : (result >> 1);
+    lng += deltaLng;
+
+    coordinates.push([lat / factor, lng / factor]);
+    }
+    return coordinates;
+}
+
 fetch("activities.json")
     .then(r => r.json())
     .then(activities => {
-        const container = document.getElementById("activity-list");
-        container.innerHTML = "";
-        activities.forEach(a => {
-            const km    = (a.distance / 1000).toFixed(1);
-            const date  = new Date(a.start_date).toLocaleDateString("fr-FR");
-            const mins  = Math.floor(a.moving_time / 60);
-            const secs  = String(a.moving_time % 60).padStart(2, "0");
-            const elev  = a.total_elevation_gain;
-            container.innerHTML += `
-                <div class="activity-card">
-                    <div class="activity-type">${a.type}</div>
-                    <h4>${a.name}</h4>
-                    <div class="activity-meta">
-                        <span>📍 ${km} km</span>
-                        <span>⏱ ${mins}:${secs}</span>
-                        <span>⬆ ${elev} m</span>
-                        <span>📅 ${date}</span>
-                    </div>
-                </div>`;
-        });
+    const container = document.getElementById("activity-list");
+    container.innerHTML = "";
+
+    activities.forEach((a, idx) => {
+        const km    = (a.distance / 1000).toFixed(1);
+        const date  = new Date(a.start_date).toLocaleDateString("fr-FR");
+        const mins  = Math.floor(a.moving_time / 60);
+        const secs  = String(a.moving_time % 60).padStart(2, "0");
+        const elev  = a.total_elevation_gain;
+
+        // unique id for the map div
+        const mapId = `activity-map-${idx}`;
+        
+        const hasPolyline = a.map && a.map.summary_polyline && a.map.summary_polyline.length;
+        const hasPhotos   = a.photos_urls && a.photos_urls.length > 0;
+
+        let extraMedia = "";
+
+        if (hasPolyline) {
+            extraMedia = `<div id="${mapId}" class="activity-map"></div>`;
+        }
+
+        // Photos go below the map (or alone if no polyline)
+        if (hasPhotos) {
+            extraMedia += a.photos_urls.map(url =>
+                `<img src="${url}" alt="${a.name}" class="activity-photo" />`
+            ).join("");
+        }
+
+        container.innerHTML += `
+        <div class="activity-card">
+            <div class="activity-type">${a.type}</div>
+            <h4>${a.name}</h4>
+            <div class="activity-meta">
+            <span>📍 ${km} km</span>
+            <span>⏱ ${mins}:${secs}</span>
+            <span>⬆ ${elev} m</span>
+            <span>📅 ${date}</span>
+            </div>
+            ${hasPolyline ? `<div id="${mapId}" class="activity-map"></div>` : ""}
+        </div>
+        `;
+
+        if (hasPolyline) {
+        const coords = decodePolyline(a.map.summary_polyline);
+        if (coords.length) {
+            const map = L.map(mapId, {
+            zoomControl: false,
+            attributionControl: false
+            });
+
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 18
+            }).addTo(map);
+
+            const poly = L.polyline(coords, { color: "#ff5500", weight: 4 });
+            poly.addTo(map);
+            map.fitBounds(poly.getBounds(), { padding: [10, 10] });
+        }
+        }
+    });
     })
     .catch(() => {
-        document.getElementById("activity-list").innerHTML =
-            "<p style='color:#bfbfbf;'>Could not load activities.</p>";
+    document.getElementById("activity-list").innerHTML =
+        "<p style='color:#bfbfbf;'>Could not load activities.</p>";
     });
 </script>
 <section style="margin-top:60px;">
