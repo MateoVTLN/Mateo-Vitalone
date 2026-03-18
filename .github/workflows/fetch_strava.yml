@@ -2,8 +2,8 @@ name: Fetch Strava Activities
 
 on:
   schedule:
-    - cron: "0 6 * * *"   # every day at 6am UTC
-  workflow_dispatch:        # also allows manual trigger
+    - cron: "0 6 * * *"
+  workflow_dispatch:
 
 jobs:
   fetch:
@@ -12,10 +12,10 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
         with:
-            token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-python@v4
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -26,7 +26,6 @@ jobs:
           STRAVA_CLIENT_ID:     ${{ secrets.STRAVA_CLIENT_ID }}
           STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
           STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
-
 
       - name: Commit updated activities
         run: |
