@@ -22,7 +22,6 @@ for activity in activities:
         params={"size": 600}
     )
     photos = photo_resp.json()
-    print(f"Activity {activity['id']} — {activity['name']} — photos raw: {photos}")
     activity["photos_urls"] = [
         p["urls"]["600"]
         for p in photos
@@ -30,4 +29,4 @@ for activity in activities:
     ]
 
 with open("activities.json", "w") as f:
-    json.dump(activities, f)
+    json.dump(activities, f, indent=2) 
