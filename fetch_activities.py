@@ -22,10 +22,9 @@ for activity in activities:
     photo_resp = requests.get(
         f"https://www.strava.com/api/v3/activities/{activity['id']}/photos",
         headers=headers,
-        params={"size": 600}   # px width — 600 is a good balance
+        params={"size": 600}
     )
     photos = photo_resp.json()
-    # Keep only the URLs of available photos
     activity["photos_urls"] = [
         p["urls"]["600"]
         for p in photos
