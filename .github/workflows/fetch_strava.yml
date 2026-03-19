@@ -35,4 +35,4 @@ jobs:
           git reset --hard origin/main
           git add activities.json
           git diff --cached --quiet || git commit -m "Update Strava activities"
-          git push origin main
+          git push --force origin main
