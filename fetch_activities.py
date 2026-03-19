@@ -1,6 +1,5 @@
 import requests, json, os
 
-# Get a fresh access token
 auth = requests.post("https://www.strava.com/oauth/token", data={
     "client_id":     os.environ["STRAVA_CLIENT_ID"],
     "client_secret": os.environ["STRAVA_CLIENT_SECRET"],
@@ -10,14 +9,12 @@ auth = requests.post("https://www.strava.com/oauth/token", data={
 access_token = auth.json()["access_token"]
 headers = {"Authorization": f"Bearer {access_token}"}
 
-# Fetch latest 10 activities
 resp = requests.get("https://www.strava.com/api/v3/athlete/activities",
     headers=headers,
     params={"per_page": 10}
 )
 activities = resp.json()
 
-# For each activity, fetch its photos
 for activity in activities:
     photo_resp = requests.get(
         f"https://www.strava.com/api/v3/activities/{activity['id']}/photos",
@@ -25,12 +22,12 @@ for activity in activities:
         params={"size": 600}
     )
     photos = photo_resp.json()
+    print(f"Activity {activity['id']} — {activity['name']} — photos raw: {photos}")
     activity["photos_urls"] = [
         p["urls"]["600"]
         for p in photos
         if isinstance(p, dict) and "urls" in p and "600" in p["urls"]
     ]
 
-# Save to JSON
 with open("activities.json", "w") as f:
     json.dump(activities, f)
