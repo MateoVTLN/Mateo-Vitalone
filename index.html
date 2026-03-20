@@ -6,9 +6,7 @@
 <title>Matéo VITALONE – Portfolio</title>
 <link rel="icon" type="image/png" href="icons/logo_mv.png">
 <link rel="stylesheet" href="styles.css">
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
 <body>
 
 <!-- HEADER -->
@@ -144,108 +142,7 @@
 </footer>
 
 <!-- SCRIPTS -->
-<script>
-
-/* ── STRAVA PREVIEW (3 latest) ── */
-fetch("activities.json")
-    .then(r => r.json())
-    .then(activities => {
-        const container = document.getElementById("home-activity-list");
-        container.innerHTML = "";
-        activities.slice(0, 3).forEach(a => {
-            const km   = (a.distance / 1000).toFixed(1);
-            const date = new Date(a.start_date).toLocaleDateString("fr-FR");
-            const mins = Math.floor(a.moving_time / 60);
-            const secs = String(a.moving_time % 60).padStart(2, "0");
-            container.innerHTML += `
-                <div class="activity-card-small">
-                    <div class="act-type">${a.type}</div>
-                    <div class="act-name">${a.name}</div>
-                    <div class="act-meta">
-                        <span>📍 ${km} km</span>
-                        <span>⏱ ${mins}:${secs}</span>
-                        <span>📅 ${date}</span>
-                    </div>
-                </div>`;
-        });
-    })
-    .catch(() => {
-        document.getElementById("home-activity-list").innerHTML =
-            "<p style='color:#bfbfbf;font-size:13px;'>Could not load activities.</p>";
-    });
-
-/* ── Carousel d'images ── */
-
-const carouselMedia = [
-    "images/project1.jpg",
-    "images/project2.jpg",
-    "images/project3.jpg"
-
-];
-
-(function initCarousel() {
-    const inner   = document.getElementById("carousel-inner");
-    const dotsBox = document.getElementById("carousel-dots");
-    const btnPrev = document.getElementById("carousel-prev");
-    const btnNext = document.getElementById("carousel-next");
-
-    if (!carouselMedia.length) return;
-
-    const shuffled = [...carouselMedia].sort(() => Math.random() - 0.5);
-    let current = 0;
-    let autoTimer;
-
-    shuffled.forEach(src => {
-        let el;
-        if (src.endsWith(".mp4") || src.endsWith(".webm")) {
-            el = document.createElement("video");
-            el.src = src;
-            el.muted = true;
-            el.playsInline = true;
-        } else {
-            el = document.createElement("img");
-            el.src = src;
-            el.alt = "";
-        }
-        inner.appendChild(el);
-
-        const dot = document.createElement("span");
-        dotsBox.appendChild(dot);
-    });
-
-    const items  = inner.querySelectorAll("img, video");
-    const dotEls = dotsBox.querySelectorAll("span");
-
-    function show(index) {
-        items.forEach(el => {
-            el.classList.remove("active");
-            if (el.tagName === "VIDEO") { el.pause(); el.currentTime = 0; }
-        });
-        dotEls.forEach(d => d.classList.remove("active"));
-        items[index].classList.add("active");
-        dotEls[index].classList.add("active");
-        clearTimeout(autoTimer);
-        if (items[index].tagName === "VIDEO") {
-            items[index].play().catch(() => {});
-            items[index].onended = () => step(1);
-        } else {
-            autoTimer = setTimeout(() => step(1), 5000);
-        }
-    }
-
-    function step(dir) {
-        current = (current + dir + shuffled.length) % shuffled.length;
-        show(current);
-    }
-
-    btnPrev.addEventListener("click", () => step(-1));
-    btnNext.addEventListener("click", () => step(1));
-    dotEls.forEach((d, i) => d.addEventListener("click", () => { current = i; show(i); }));
-
-    show(0);
-})();
-
-</script>
-
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

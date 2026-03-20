@@ -3,231 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matéo VITALONE – Portfolio</title>
-<link rel="icon" type="image/png" href="icons\logo_MV.png">
+<title>Matéo VITALONE – Sport</title>
+<link rel="icon" type="image/png" href="icons/logo_MV.png">
 <link rel="stylesheet" href="styles.css">
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
-<script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-</script>
-<style>
-  .activity-map {
-    height: 180px;
-    margin-top: 10px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
 
-<!-- =========================
-HEADER
-========================= -->
-
+<!-- HEADER -->
 <header>
-
 <div class="logo">
-<img src="icons\logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-<span>Matéo VITALONE</span>
+    <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+    <span>Matéo VITALONE</span>
 </div>
 <nav>
-<a href="index.html">Home</a>
-<a href="biblio.html">About me</a>
-<a href="project1.html">Project 1</a>
-<a href="project2.html">Project 2</a>
-<a href="project3.html">Project 3</a>
-<a href="sport.html">Sport</a>
-
-
-<!-- Future additions -->
-<!-- <a href="project4.html">Project 4</a> -->
-<!-- <a href="research.html">Research</a> -->
-<!-- <a href="teaching.html">Teaching</a> -->
-<!-- <a href="contact.html">Contact</a> -->
-
+    <a href="index.html">Home</a>
+    <a href="biblio.html">About me</a>
+    <a href="project1.html">Project 1</a>
+    <a href="project2.html">Project 2</a>
+    <a href="project3.html">Project 3</a>
+    <a href="sport.html">Sport</a>
 </nav>
-
 <div class="header-icons">
-
-<a href="https://www.linkedin.com/" target="_blank">
-<img src="icons\linkedinlogo.webp" alt="LinkedIn">
-</a>
-
+    <a href="https://www.linkedin.com/" target="_blank">
+        <img src="icons/linkedinlogo.webp" alt="LinkedIn">
+    </a>
 </div>
-
 </header>
 
-<!-- =========================
-MAIN CONTENT
-========================= -->
-
+<!-- MAIN -->
 <main>
 
+<!-- STRAVA BANNER -->
 <section style="margin-top:60px;">
-
-    <h2>Latest Activities</h2>
-
-    <div class="activity-grid" id="activity-list">
-        <p style="color:#bfbfbf;">Loading activities...</p>
-    </div>
-
-</section>
-
-<script>
-// Polyline decoder (Google/Strava style)
-function decodePolyline(str, precision = 5) {
-    let index = 0, lat = 0, lng = 0, coordinates = [];
-    const factor = Math.pow(10, precision);
-
-    while (index < str.length) {
-    let b, shift = 0, result = 0;
-    do {
-        b = str.charCodeAt(index++) - 63;
-        result |= (b & 0x1f) << shift;
-        shift += 5;
-    } while (b >= 0x20);
-    const deltaLat = (result & 1) ? ~(result >> 1) : (result >> 1);
-    lat += deltaLat;
-
-    shift = 0;
-    result = 0;
-    do {
-        b = str.charCodeAt(index++) - 63;
-        result |= (b & 0x1f) << shift;
-        shift += 5;
-    } while (b >= 0x20);
-    const deltaLng = (result & 1) ? ~(result >> 1) : (result >> 1);
-    lng += deltaLng;
-
-    coordinates.push([lat / factor, lng / factor]);
-    }
-    return coordinates;
-}
-
-fetch("activities.json")
-    .then(r => r.json())
-    .then(activities => {
-    const container = document.getElementById("activity-list");
-    container.innerHTML = "";
-
-    activities.forEach((a, idx) => {
-        const km    = (a.distance / 1000).toFixed(1);
-        const date  = new Date(a.start_date).toLocaleDateString("fr-FR");
-        const mins  = Math.floor(a.moving_time / 60);
-        const secs  = String(a.moving_time % 60).padStart(2, "0");
-        const elev  = a.total_elevation_gain;
-
-        // unique id for the map div
-        const mapId = `activity-map-${idx}`;
-        
-        const hasPolyline = a.map && a.map.summary_polyline && a.map.summary_polyline.length;
-        const hasPhotos   = a.photos_urls && a.photos_urls.length > 0;
-
-        let extraMedia = "";
-
-        if (hasPolyline) {
-            extraMedia = `<div id="${mapId}" class="activity-map"></div>`;
-        }
-
-        // Photos go below the map (or alone if no polyline)
-        if (hasPhotos) {
-            extraMedia += a.photos_urls.map(url =>
-                `<img src="${url}" alt="${a.name}" class="activity-photo" />`
-            ).join("");
-        }
-
-        container.innerHTML += `
-        <div class="activity-card">
-            <div class="activity-type">${a.type}</div>
-            <h4>${a.name}</h4>
-            <div class="activity-meta">
-            <span>📍 ${km} km</span>
-            <span>⏱ ${mins}:${secs}</span>
-            <span>⬆ ${elev} m</span>
-            <span>📅 ${date}</span>
-            </div>
-            ${hasPolyline ? `<div id="${mapId}" class="activity-map"></div>` : ""}
-        </div>
-        `;
-
-        if (hasPolyline) {
-        const coords = decodePolyline(a.map.summary_polyline);
-        if (coords.length) {
-            const map = L.map(mapId, {
-            zoomControl: false,
-            attributionControl: false
-            });
-
-            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            maxZoom: 18
-            }).addTo(map);
-
-            const poly = L.polyline(coords, { color: "#ff5500", weight: 4 });
-            poly.addTo(map);
-            map.fitBounds(poly.getBounds(), { padding: [10, 10] });
-        }
-        }
-    });
-    })
-    .catch(() => {
-    document.getElementById("activity-list").innerHTML =
-        "<p style='color:#bfbfbf;'>Could not load activities.</p>";
-    });
-</script>
-<section style="margin-top:60px;">
-
     <h2>Sport & Training</h2>
-
     <div class="strava-banner">
-
         <a href="https://www.strava.com/athletes/159947739" target="_blank">
             <img src="icons/strava_logo.png" alt="Strava">
         </a>
-
         <div>
             <h3>Matéo Vitalone on Strava</h3>
             <p>Follow my runs, rides and outdoor activities on Strava.</p>
         </div>
-
     </div>
-
 </section>
+
+<!-- ACTIVITIES -->
+<section style="margin-top:60px;">
+    <h2>Latest Activities</h2>
+    <div class="activity-grid" id="activity-list">
+        <p style="color:#bfbfbf;">Loading activities...</p>
+    </div>
+</section>
+
 </main>
 
-
-<!-- =========================
-FOOTER
-========================= -->
-
+<!-- FOOTER -->
 <footer>
-
 <div class="footer-logo">
-<img src="icons\logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-<strong>Matéo VITALONE</strong>
+    <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+    <strong>Matéo VITALONE</strong>
 </div>
 <div class="footer-icons">
-
-<a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank">
-<img src="icons/linkedinlogo.webp" alt="LinkedIn">
-</a>
-
-<a href="https://github.com/MateoVTLN?tab=repositories" target="_blank">
-<img src="icons/githublogo.png" alt="GitHub">
-</a>
-
+    <a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank">
+        <img src="icons/linkedinlogo.webp" alt="LinkedIn">
+    </a>
+    <a href="https://github.com/MateoVTLN?tab=repositories" target="_blank">
+        <img src="icons/githublogo.png" alt="GitHub">
+    </a>
 </div>
-
-<p>
-Matéo Vitalone Portfolio GitHub page, updated in March 2026
-</p>
-
+<p>Matéo Vitalone Portfolio GitHub page, updated in March 2026</p>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
-
