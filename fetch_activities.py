@@ -14,6 +14,9 @@ resp = requests.get("https://www.strava.com/api/v3/athlete/activities",
     params={"per_page": 10}
 )
 activities = resp.json()
+print(f"Nombre d'activités reçues: {len(activities)}")
+for a in activities:
+    print(f"  - {a['name']} | {a['start_date']}")
 
 for activity in activities:
     photo_resp = requests.get(
