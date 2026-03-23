@@ -30,6 +30,10 @@ for activity in activities:
         for p in photos
         if isinstance(p, dict) and "urls" in p and "600" in p["urls"]
     ]
-
+    
 with open("activities.json", "w", encoding="utf-8") as f:
     json.dump(activities, f, indent=2, ensure_ascii=False)
+
+print("Fichier écrit, taille:", os.path.getsize("activities.json"), "bytes")
+with open("activities.json", "r", encoding="utf-8") as f:
+    print("Début du fichier:", f.read(100))
