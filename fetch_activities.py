@@ -31,5 +31,5 @@ for activity in activities:
         if isinstance(p, dict) and "urls" in p and "600" in p["urls"]
     ]
 
-with open("activities.json", "w") as f:
-    json.dump(activities, f, indent=2) 
+with open("activities.json", "w", encoding="utf-8") as f:
+    json.dump(activities, f, indent=2, ensure_ascii=False)
