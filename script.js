@@ -68,7 +68,12 @@ if (document.getElementById("activity-list")) {
                             ${controls}
                         </div>`;
                 }
-
+                /* ── Pace calculator — sport.html ── */
+                const paceSecs = Math.round(1000 / a.average_speed);
+                const paceMin  = Math.floor(paceSecs / 60);
+                const paceSec  = String(paceSecs % 60).padStart(2, "0");
+                const pace     = `${paceMin}:${paceSec} /km`;
+                const showPace = ["Run", "Walk", "Hike", "Trail Run"].includes(a.sport_type);
                 container.innerHTML += `
                     <div class="activity-card">
                         <div class="activity-type">${a.sport_type || a.type}</div>
@@ -77,6 +82,7 @@ if (document.getElementById("activity-list")) {
                             <span>📍 ${km} km</span>
                             <span>⏱ ${mins}:${secs}</span>
                             <span>⬆ ${elev} m</span>
+                            ${showPace ? `<span>⚡ ${pace}</span>` : ""}
                             <span>📅 ${date}</span>
                         </div>
                         ${mapBlock}
@@ -172,12 +178,15 @@ const carouselMedia = [
         show(current);
     }
 
+
     btnPrev.addEventListener("click", () => step(-1));
     btnNext.addEventListener("click", () => step(1));
     dotEls.forEach((d, i) => d.addEventListener("click", () => { current = i; show(i); }));
 
     show(0);
 })();
+
+
 
 /* ── Polyline decoder ── */
 function decodePolyline(str, precision = 5) {
