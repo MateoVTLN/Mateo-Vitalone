@@ -84,13 +84,13 @@ if (document.getElementById("activity-list")) {
                             <span>⬆ ${elev} m</span>
                             ${showPace ? `<span>⚡ ${pace}</span>` : ""}
                             <span>📅 ${date}</span>
+                            <span> 💓 ${a.average_heartrate?.toFixed(1) || "N/A"} bpm</span>
                         </div>
                         ${mapBlock}
                         ${sliderBlock}
                     </div>`;
             });
 
-            // Init maps and sliders AFTER all HTML is injected
             activities.forEach((a, idx) => {
                 const hasPolyline = a.map && a.map.summary_polyline && a.map.summary_polyline.length > 0;
                 const hasPhotos   = Array.isArray(a.photos_urls) && a.photos_urls.length > 0;
@@ -120,7 +120,7 @@ const carouselMedia = [
     "images/project1.jpg",
     "images/project2.jpg",
     "images/project3.jpg"
-    // Ajoute tes images ici
+    // pict to put here
 ];
 
 (function initCarousel() {
