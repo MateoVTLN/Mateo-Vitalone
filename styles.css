@@ -598,3 +598,234 @@ RESPONSIVE
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================
+BIO PAGE – ALTERNATING BLOCKS
+========================= */
+
+.bio-intro {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 70px 25px 50px;
+    text-align: center;
+}
+
+.bio-intro h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.bio-intro p {
+    color: #cfcfcf;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.bio-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 420px;
+}
+
+.bio-block .bio-img {
+    overflow: hidden;
+}
+
+.bio-block .bio-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.bio-block .bio-text {
+    background: #111;
+    padding: 60px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bio-block .bio-text h2 {
+    font-size: 26px;
+    margin: 0 0 22px;
+}
+
+.bio-block .bio-text p {
+    color: #cfcfcf;
+    line-height: 1.8;
+    font-size: 15px;
+    margin: 0 0 14px;
+}
+
+/* =========================
+PROJECT PAGES – HERO
+========================= */
+
+.project-hero {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+}
+
+.project-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+    display: block;
+}
+
+.project-hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px 60px;
+    background: linear-gradient(transparent 30%, rgba(0,0,0,0.65));
+}
+
+.project-hero-overlay h1 {
+    font-size: 38px;
+    margin: 0 0 8px;
+}
+
+.project-hero-overlay .hero-sub {
+    font-size: 21px;
+    font-weight: bold;
+    color: #cfcfcf;
+    margin: 0;
+}
+
+/* =========================
+PROJECT PAGES – STEPS
+========================= */
+
+.project-intro {
+    margin-bottom: 40px;
+}
+
+.project-intro p {
+    color: #cfcfcf;
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+.step-title {
+    text-align: center;
+    margin: 55px 0 32px;
+}
+
+.step-title h2 {
+    display: inline;
+    border-bottom: 2px solid #e6e6e6;
+    padding-bottom: 6px;
+    font-size: 24px;
+}
+
+.step-title .step-sub {
+    display: block;
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.three-col {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+    margin-bottom: 40px;
+}
+
+.three-col .img-cap {
+    display: flex;
+    flex-direction: column;
+}
+
+.three-col .img-cap img {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    object-fit: cover;
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+    margin-bottom: 30px;
+}
+
+.img-cap {
+    text-align: center;
+    margin: 0;
+}
+
+.img-cap img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+}
+
+.img-cap figcaption {
+    font-size: 11px;
+    color: #888;
+    margin-top: 7px;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.img-cap figcaption a {
+    color: #777;
+    font-size: 10px;
+    word-break: break-all;
+}
+
+.step-text {
+    color: #cfcfcf;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.step-text p {
+    margin-bottom: 14px;
+}
+
+.step-links {
+    margin: 20px 0;
+    color: #cfcfcf;
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* =========================
+RESPONSIVE – PROJECT & BIO
+========================= */
+
+@media(max-width: 750px) {
+    .bio-block {
+        grid-template-columns: 1fr;
+    }
+    .bio-block .bio-text {
+        padding: 40px 25px;
+    }
+    .three-col {
+        grid-template-columns: 1fr;
+    }
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+    .project-hero {
+        height: 220px;
+    }
+    .project-hero-overlay {
+        padding: 20px 25px;
+    }
+    .project-hero-overlay h1 {
+        font-size: 26px;
+    }
+}
