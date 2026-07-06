@@ -3,19 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sport &amp; Training — Matéo Vitalone</title>
-<meta name="description" content="Matéo Vitalone's training dashboard: every Strava activity on one map, records and totals, and a browsable activity feed with photos and stats.">
+<title>Academic work — Matéo Vitalone</title>
+<meta name="description" content="University projects and reports by Matéo Vitalone: audio signal processing, machine learning for audio, electroacoustics and acoustic modelling — MSc Music and Acoustic Engineering, Politecnico di Milano.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Sport &amp; Training — Matéo Vitalone">
-<meta property="og:description" content="All my routes on one map, records, totals and the full activity feed — powered by the Strava API.">
-<meta property="og:url" content="https://mateovtln.github.io/Mateo-Vitalone/sport.html">
+<meta property="og:title" content="Academic work — Matéo Vitalone">
+<meta property="og:description" content="Reports and projects in acoustics, audio signal processing and machine learning for audio.">
+<meta property="og:url" content="https://mateovtln.github.io/Mateo-Vitalone/academic.html">
 <meta property="og:image" content="https://mateovtln.github.io/Mateo-Vitalone/images/brand_banner.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="icons/logo_mv.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -55,90 +54,32 @@
 <main>
 
 <section class="reveal" style="margin-top:24px;">
-    <span class="kicker">Powered by the Strava API · updated daily</span>
-    <h1 style="font-size:clamp(30px,4.5vw,46px);">Sport &amp; training</h1>
-    <p class="lead" style="margin-top:16px;">Running keeps the engineering balanced. Everything
-    below is pulled automatically from my Strava history — totals, records, every route on one
-    map, and the full activity feed. Click any activity (or any route on the map) for its
-    stats, map and photos.</p>
+    <span class="kicker">MSc Music &amp; Acoustic Engineering · Politecnico di Milano</span>
+    <h1 style="font-size:clamp(30px,4.5vw,46px);">Academic work</h1>
+    <p class="lead" style="margin-top:16px;">Projects and reports from my university studies —
+    audio signal processing, machine learning for audio, electroacoustics, acoustic modelling
+    and vibration analysis. Filter by topic, and open the report or the code where available.</p>
 </section>
 
-<div id="sport-dashboard">
+<section class="section" style="margin-top:44px;">
+    <div class="filter-row reveal" id="academic-filters"></div>
+    <div class="academic-grid" id="academic-grid">
+        <p style="color:var(--text-faint)">Loading…</p>
+    </div>
+</section>
 
-    <!-- TOTALS -->
-    <section class="section" style="margin-top:48px;">
-        <div class="section-head reveal">
-            <div>
-                <span class="kicker">All time</span>
-                <h2>Totals</h2>
-            </div>
-        </div>
-        <div class="stat-row reveal" id="stat-row"></div>
-    </section>
-
-    <!-- RECORDS -->
-    <section class="section">
-        <div class="section-head reveal">
-            <div>
-                <span class="kicker">Personal bests</span>
-                <h2>Records</h2>
-            </div>
-        </div>
-        <div class="records-grid reveal" id="records-grid"></div>
-    </section>
-
-    <!-- MAP + FEED -->
-    <section class="section">
-        <div class="section-head reveal">
-            <div>
-                <span class="kicker">Everywhere I've been</span>
-                <h2>All routes &amp; activities</h2>
-            </div>
-        </div>
-
-        <div class="filter-row reveal" id="sport-filters"></div>
-
-        <div id="all-routes-map" class="reveal"></div>
-        <p class="map-hint">Hover a route to see the activity, click it to open the details.</p>
-
-        <div class="activity-feed reveal" id="activity-feed" style="margin-top:34px;">
-            <p style="color:var(--text-faint)">Loading activities…</p>
-        </div>
-        <div class="load-more-wrap" id="load-more-wrap" style="display:none;">
-            <button class="btn btn-ghost" id="load-more">Load more activities</button>
-        </div>
-    </section>
-
-</div>
-
-<!-- STRAVA BANNER -->
-<section class="section reveal">
-    <div class="strava-banner">
-        <a href="https://www.strava.com/athletes/159947739" target="_blank" rel="noopener">
-            <img src="icons/strava_logo.png" alt="Strava">
-        </a>
-        <div>
-            <h3>Matéo Vitalone on Strava</h3>
-            <p>Follow my runs and outdoor activities, and give kudos over there.</p>
-        </div>
-        <a class="strava-profile-link" href="https://www.strava.com/athletes/159947739" target="_blank" rel="noopener" style="margin-left:auto;">View profile →</a>
+<!-- CONTACT -->
+<section class="contact-band reveal">
+    <span class="kicker">Contact</span>
+    <h2>Interested in this work?</h2>
+    <p>Reach out on LinkedIn for questions, collaborations or opportunities.</p>
+    <div class="contact-actions">
+        <a class="btn btn-primary" href="assets/cv/Mateo_Vitalone_CV.pdf" data-cv-check target="_blank" rel="noopener">Download CV</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank" rel="noopener">LinkedIn</a>
     </div>
 </section>
 
 </main>
-
-<!-- ACTIVITY MODAL -->
-<div class="activity-modal" id="activity-modal" role="dialog" aria-modal="true">
-    <div class="modal-card">
-        <button class="modal-close" aria-label="Close">✕</button>
-        <h3 id="modal-title"></h3>
-        <p class="modal-date" id="modal-date"></p>
-        <div class="modal-stats" id="modal-stats"></div>
-        <div id="modal-gallery"></div>
-        <div id="modal-map"></div>
-        <a class="modal-strava-link" id="modal-strava" href="#" target="_blank" rel="noopener">View on Strava →</a>
-    </div>
-</div>
 
 <!-- FOOTER -->
 <footer class="site-footer">
@@ -171,7 +112,7 @@
     <p class="footer-note">© 2026 Matéo Vitalone · Static site hosted on GitHub Pages · Updated July 2026</p>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="academic.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

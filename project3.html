@@ -3,87 +3,195 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matéo VITALONE – Portfolio</title>
-<link rel="icon" type="image/png" href="icons\logo_MV.png">
+<title>Sustainer — Matéo Vitalone</title>
+<meta name="description" content="Building a guitar sustainer: an active op-amp circuit that feeds an electromagnetic force back to the vibrating strings, letting a note ring out indefinitely.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sustainer — infinite notes through electromagnetic feedback">
+<meta property="og:description" content="An op-amp, filters and a driver coil: closing the loop between a guitar's strings and its electronics.">
+<meta property="og:url" content="https://mateovtln.github.io/Mateo-Vitalone/project3.html">
+<meta property="og:image" content="https://mateovtln.github.io/Mateo-Vitalone/images/brand_banner.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="icons/logo_mv.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- =========================
-HEADER
-========================= -->
-
-<header>
-
-<div class="logo">
-<img src="icons\logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-<span>Matéo VITALONE</span>
-</div>
-<nav>
-<a href="index.html">Home</a>
-<a href="biblio.html">About me</a>
-<a href="project1.html">Project 1</a>
-<a href="project2.html">Project 2</a>
-<a href="project3.html">Project 3</a>
-<a href="sport.html">Sport</a>
-
-<!-- Future additions -->
-<!-- <a href="project4.html">Project 4</a> -->
-<!-- <a href="research.html">Research</a> -->
-<!-- <a href="teaching.html">Teaching</a> -->
-<!-- <a href="contact.html">Contact</a> -->
-
-</nav>
-
-<div class="header-icons">
-
-<a href="https://www.linkedin.com/" target="_blank">
-<img src="icons\linkedinlogo.webp" alt="LinkedIn">
-</a>
-
-</div>
-
+<!-- HEADER -->
+<header class="site-header">
+    <a class="logo" href="index.html">
+        <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+        <span>Matéo VITALONE</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="biblio.html">About</a>
+        <div class="nav-drop">
+            <button type="button">Projects <span class="caret"></span></button>
+            <ul class="drop-menu">
+                <li><a href="project1.html">SG Custom <span>Reshaping & ageing a Gibson SG replica</span></a></li>
+                <li><a href="project2.html">Folk-Bucker <span>An electric pickup in an acoustic guitar</span></a></li>
+                <li><a href="project3.html">Sustainer <span>Infinite-sustain feedback circuit</span></a></li>
+            </ul>
+        </div>
+        <a href="academic.html">Academic</a>
+        <a href="sport.html">Sport</a>
+    </nav>
+    <div class="header-actions">
+        <a class="icon-link" href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="icons/linkedinlogo.webp" alt="LinkedIn">
+        </a>
+        <a class="icon-link" href="https://github.com/MateoVTLN" target="_blank" rel="noopener" aria-label="GitHub">
+            <img src="icons/githublogo.png" alt="GitHub">
+        </a>
+    </div>
 </header>
 
-<!-- =========================
-MAIN CONTENT
-========================= -->
+<!-- HERO (no photo yet) -->
+<div class="project-hero no-photo">
+    <div class="project-hero-overlay">
+        <h1>Sustainer</h1>
+        <p class="hero-sub">Infinite notes: feeding energy back to the strings, electromagnetically</p>
+        <div class="hero-meta">
+            <span class="tag">Analog electronics</span>
+            <span class="tag">Op-amp</span>
+            <span class="tag">Feedback</span>
+            <span class="tag">In progress</span>
+        </div>
+    </div>
+</div>
 
+<!-- MAIN -->
 <main>
 
+<section class="project-intro reveal">
+    <p>On any guitar, a plucked note dies away: the string's vibration energy is dissipated in
+    the instrument, in the air, and in the player's hands. A <strong>sustainer</strong> is an
+    active circuit built into an electric guitar that compensates those losses in real time —
+    so that a note, once played, can ring out <strong>indefinitely</strong>.</p>
+    <p>The principle is a closed electromechanical feedback loop: the string's vibration is
+    sensed, amplified, and fed back to the string as an <strong>electromagnetic force</strong>
+    that keeps it moving. This project is my own implementation of that idea, built around an
+    operational amplifier, filtering, and a hand-wound driver coil.</p>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="step-title reveal">
+    <h2>How it works</h2>
+    <span class="step-sub">A closed electromechanical feedback loop</span>
+</div>
+
+<div class="step-text reveal">
+    <p><strong>1 — Sensing.</strong> A pickup converts the string's vibration into an
+    electrical signal, exactly as it does for normal playing.</p>
+    <p><strong>2 — Conditioning.</strong> An op-amp stage amplifies this small signal, and
+    filters shape its frequency content. The filtering matters: the loop must put its energy
+    into the musical vibration of the string, not into noise or unwanted resonances that would
+    make the system howl like microphone feedback.</p>
+    <p><strong>3 — Driving.</strong> The amplified signal feeds a <strong>driver coil</strong>
+    mounted under the strings. The coil behaves like an electromagnet whose field varies with
+    the signal — it exerts a periodic electromagnetic force on the steel strings.</p>
+    <p><strong>4 — Closing the loop.</strong> Because that force follows the string's own
+    motion, it pushes the string <em>in phase</em> with its vibration — like pushing a swing at
+    exactly the right moment. The energy injected each cycle compensates the natural damping,
+    and the vibration is sustained through time instead of decaying.</p>
+    <p>The behaviour of the loop depends on gain and phase: enough gain to overcome losses, and
+    the right phase so the force helps the motion rather than fighting it. Get it right and a
+    single note blooms into endless, violin-like sustain.</p>
+</div>
+
+<!-- BUILDING BLOCKS -->
+<div class="step-title reveal">
+    <h2>Building blocks</h2>
+    <span class="step-sub">From schematic to instrument</span>
+</div>
+
+<div class="step-text reveal">
+    <p><strong>Sensor pickup</strong> — the string-vibration input of the loop.</p>
+    <p><strong>Op-amp gain stage</strong> — amplifies the sensed signal to a level able to
+    drive the coil, with the loop gain setting how strongly the sustain takes hold.</p>
+    <p><strong>Filters</strong> — band-limit the loop so the energy goes into the note being
+    played, keeping the feedback stable and musical across the fretboard.</p>
+    <p><strong>Driver coil</strong> — a low-impedance coil placed under the strings, turning
+    the amplified signal back into a magnetic force on the steel strings.</p>
+    <p><strong>Integration</strong> — everything must fit inside the instrument and coexist
+    with normal playing: driver placement, shielding between driver and sensing pickup,
+    battery power and switching.</p>
+</div>
+
+<!-- STATUS / GALLERY -->
+<div class="step-title reveal">
+    <h2>Build log</h2>
+    <span class="step-sub">Work in progress</span>
+</div>
+
+<div class="note-box reveal">
+    <strong>In progress —</strong> this page will grow as the build advances. Photos of the
+    circuit prototype, the driver coil and the installation are coming soon.
+</div>
+
+<div class="three-col reveal">
+    <div class="photo-placeholder">
+        <svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg>
+        Circuit prototype<br>photo coming soon
+    </div>
+    <div class="photo-placeholder">
+        <svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg>
+        Driver coil<br>photo coming soon
+    </div>
+    <div class="photo-placeholder">
+        <svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg>
+        Installation in the guitar<br>photo coming soon
+    </div>
+</div>
+
+<!-- NEXT -->
+<section class="contact-band reveal">
+    <span class="kicker">Meanwhile</span>
+    <h2>Explore the other projects</h2>
+    <p>The SG Custom relic build and the Folk-Bucker acoustic conversion are fully documented.</p>
+    <div class="contact-actions">
+        <a class="btn btn-primary" href="project1.html">SG Custom</a>
+        <a class="btn btn-ghost" href="project2.html">Folk-Bucker</a>
+    </div>
+</section>
 
 </main>
 
-
-<!-- =========================
-FOOTER
-========================= -->
-
-<footer>
-
-<div class="footer-logo">
-<img src="icons\logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-<strong>Matéo VITALONE</strong>
-</div>
-<div class="footer-icons">
-
-<a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank">
-<img src="icons/linkedinlogo.webp" alt="LinkedIn">
-</a>
-
-<a href="https://github.com/MateoVTLN?tab=repositories" target="_blank">
-<img src="icons/githublogo.png" alt="GitHub">
-</a>
-
-</div>
-
-<p>
-Matéo Vitalone Portfolio GitHub page, updated in March 2026
-</p>
-
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-logo">
+                <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+                <strong>Matéo VITALONE</strong>
+            </div>
+            <div class="footer-icons">
+                <a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="icons/linkedinlogo.webp" alt="LinkedIn"></a>
+                <a href="https://github.com/MateoVTLN?tab=repositories" target="_blank" rel="noopener" aria-label="GitHub"><img src="icons/githublogo.png" alt="GitHub"></a>
+                <a href="https://www.strava.com/athletes/159947739" target="_blank" rel="noopener" aria-label="Strava"><img src="icons/strava_logo.png" alt="Strava"></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="biblio.html">About me</a>
+            <a href="academic.html">Academic work</a>
+            <a href="sport.html">Sport</a>
+        </div>
+        <div class="footer-col">
+            <h4>Projects</h4>
+            <a href="project1.html">SG Custom</a>
+            <a href="project2.html">Folk-Bucker</a>
+            <a href="project3.html">Sustainer</a>
+        </div>
+    </div>
+    <p class="footer-note">© 2026 Matéo Vitalone · Static site hosted on GitHub Pages · Updated July 2026</p>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

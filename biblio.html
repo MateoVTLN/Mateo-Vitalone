@@ -1,219 +1,263 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matéo VITALONE – À propos</title>
-<link rel="icon" type="image/png" href="icons/logo_MV.png">
+<title>About me — Matéo Vitalone</title>
+<meta name="description" content="Who is Matéo Vitalone? From electric guitar and stage experience to electronics, acoustics and an MSc in Music and Acoustic Engineering at Politecnico di Milano.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="About me — Matéo Vitalone">
+<meta property="og:description" content="From electric guitar and stage experience to electronics, acoustics and an MSc in Music and Acoustic Engineering.">
+<meta property="og:url" content="https://mateovtln.github.io/Mateo-Vitalone/biblio.html">
+<meta property="og:image" content="https://mateovtln.github.io/Mateo-Vitalone/images/bio_stage.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="icons/logo_mv.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- =========================
-HEADER
-========================= -->
-
-<header>
-<div class="logo">
-<img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-<span>Matéo VITALONE</span>
-</div>
-<nav>
-<a href="index.html">Home</a>
-<a href="biblio.html">About me</a>
-<a href="project1.html">Project 1</a>
-<a href="project2.html">Project 2</a>
-<a href="project3.html">Project 3</a>
-<a href="sport.html">Sport</a>
-</nav>
-<div class="header-icons">
-<a href="https://www.linkedin.com/" target="_blank">
-<img src="icons/linkedinlogo.webp" alt="LinkedIn">
-</a>
-</div>
+<!-- HEADER -->
+<header class="site-header">
+    <a class="logo" href="index.html">
+        <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+        <span>Matéo VITALONE</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="biblio.html">About</a>
+        <div class="nav-drop">
+            <button type="button">Projects <span class="caret"></span></button>
+            <ul class="drop-menu">
+                <li><a href="project1.html">SG Custom <span>Reshaping & ageing a Gibson SG replica</span></a></li>
+                <li><a href="project2.html">Folk-Bucker <span>An electric pickup in an acoustic guitar</span></a></li>
+                <li><a href="project3.html">Sustainer <span>Infinite-sustain feedback circuit</span></a></li>
+            </ul>
+        </div>
+        <a href="academic.html">Academic</a>
+        <a href="sport.html">Sport</a>
+    </nav>
+    <div class="header-actions">
+        <a class="icon-link" href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="icons/linkedinlogo.webp" alt="LinkedIn">
+        </a>
+        <a class="icon-link" href="https://github.com/MateoVTLN" target="_blank" rel="noopener" aria-label="GitHub">
+            <img src="icons/githublogo.png" alt="GitHub">
+        </a>
+    </div>
 </header>
 
-<!-- =========================
-INTRO
-========================= -->
-
-<section class="bio-intro">
-<h1>Qui suis-je&nbsp;?</h1>
-<p>Bonjour et bienvenue&nbsp;! Pour mieux comprendre ce site ainsi que son contenu, il est préférable pour moi de me présenter. Je vais donc essayer de vous décrire brièvement mon histoire et mon parcours à travers mes études et ma passion pour la musique.</p>
-</section>
-
-<!-- =========================
-SECTION 1 – La musique (texte gauche / image droite)
-========================= -->
-
-<div class="bio-block">
-<div class="bio-text">
-<h2>La musique</h2>
-<p>C'est à 14 ans, en apercevant un vinyle d'AC/DC chez un proche que je me suis intéressé au Rock. Auparavant, ma culture musicale était pauvre, restreinte sur les musiques actuelles et le rap. J'étais en 3ème lorsqu'il m'est venu l'idée de commencer à prendre des cours de guitare électrique. Ainsi débute ma passion pour cet instrument reliant de nombreux domaines comme la lutherie, l'ébénisterie et l'électronique.</p>
-<p>Se sont ensuite déroulées 5 années au sein de l'école Muzik-Adicted durant lesquelles j'ai pu, au rythme de 2 fois à l'année, monter sur scène. L'expérience musicale acquise au sein de cette école m'a permis d'éveiller ma créativité en plus d'enrichir ma culture musicale. En me faisant monter sur scène face à plusieurs centaines de personnes, cette école m'a aussi permis de reprendre confiance en moi.</p>
-</div>
-<div class="bio-img">
-<!-- \images\myself.png -->
-<img src="images/myself.png" alt="Concert – photo scène">
-</div>
-</div>
-
-<!-- =========================
-SECTION 2 – Les premières modifications (image gauche / texte droit)
-========================= -->
-
-<div class="bio-block">
-<div class="bio-img">
-<!-- \images\bio_electronics.jpg -->
-<img src="images/bio_electronics.jpg" alt="Travail sur l'électronique de guitare">
-</div>
-<div class="bio-text">
-<h2>Les premières modifications</h2>
-<p>Bricoleur dans l'âme et tout simplement curieux, je n'ai pu m'empêcher de démonter moi-même mon instrument lors qu'est survenu pour la première fois une panne sur celui-ci. Une fois face au système électronique interne je fus fasciné par la simplicité de celui-ci&nbsp;: 2 potentiomètres pour le volume et 2 autres potentiomètres montés en série avec condensateurs pour filtrer les hautes fréquences.</p>
-<p>C'est ainsi que je me suis intéressé à l'électronique et à la construction des guitares électriques. Après avoir passé quelques mois à apprendre à souder les composants électroniques, ma guitare électrique vit très vite son électronique remplacée&nbsp;: du simple condensateur jusqu'aux micros, tous furent remplacés. Après avoir essayé plusieurs montages des micros, il était tant de passer à l'esthétique.</p>
-</div>
-</div>
-
-<!-- =========================
-SECTION 3 – Ma passion pour l'électronique (texte gauche / image droite)
-========================= -->
-
-<div class="bio-block">
-<div class="bio-text">
-<h2>Ma passion pour l'électronique</h2>
-<p>Étant au cœur du fonctionnement de la guitare électrique, j'utilise constamment l'électronique pour façonner le son que je souhaite émettre en sortie. En suivant les schémas électroniques mis à disposition en ligne, j'ai pu concevoir plusieurs modules actifs accessoires à l'instrument.</p>
-<p>Au delà de l'aspect sonore, l'électronique a pris une place considérable dans mes passe-temps. Grâce à cette branche de la physique, il m'est possible de réparer, modifier ou créer un vaste ensemble d'appareils utiles dans la vie de tous les jours (Lampe, enceinte audio…).</p>
-</div>
-<div class="bio-img">
-<!-- \images\bio_soldering.jpg -->
-<img src="images/bio_soldering.jpg" alt="Soudure de composants électroniques">
-</div>
-</div>
-
-<!-- =========================
-SECTION 4 – Vers une esthétique vintage (image gauche / texte droit)
-========================= -->
-
-<div class="bio-block">
-<div class="bio-img">
-<!-- \images\bio_marshall.jpg -->
-<img src="images/bio_marshall.jpg" alt="Amplificateur Marshall vintage">
-</div>
-<div class="bio-text">
-<h2>Vers une esthétique «&nbsp;vintage&nbsp;»</h2>
-<p>Passionné par les vieux amplis, haut-parleurs et guitares, j'aime reproduire dans les moindres détails le style ou l'usure d'anciens modèles. Pour ce faire, je prends le soin d'élaborer des colorants vieillissants (caféine, rouille…) et simule l'oxydation des parties métalliques grâce aux acides et à l'oxydation.</p>
-<p>Étant passionné de l'histoire des guitares électriques, je veille aussi à utiliser des composants et pièces similaires aux originaux pour une plus grande fidélité esthétique. Je puise parfois mon imagination dans l'art classique pour revisiter l'habillage de mes hauts parleurs ou amplificateurs.</p>
-</div>
-</div>
-
-<!-- =========================
-PARCOURS ACADÉMIQUE
-========================= -->
-
+<!-- MAIN -->
 <main>
 
-<section class="intro">
-<h1>My academic journey</h1>
-<p>My academic and technical interests lie at the intersection of
-<strong>acoustics, signal processing, electroacoustics and sound engineering</strong>.
-My work focuses on understanding and designing systems that generate,
-shape and analyze sound, ranging from musical instruments to complex
-acoustic environments.</p>
-<p>My interest in audio engineering originated from a passion for
-electric guitars and rock music. Curiosity about how instruments
-produce and shape sound gradually led me toward electronics,
-signal processing and acoustic engineering.</p>
+<!-- INTRO -->
+<section class="reveal" style="margin-top:24px;">
+    <span class="kicker">About me</span>
+    <h1 style="font-size:clamp(30px,4.5vw,46px);">Who am I?</h1>
+    <p class="lead" style="margin-top:16px;">Hello and welcome! To make sense of this site and
+    what's on it, let me introduce myself — a short tour of my story, my studies, and my
+    passion for music and everything that amplifies it.</p>
 </section>
 
-<section>
-<h2>Academic Path</h2>
-<div class="timeline">
-
-<div class="timeline-item">
-<div class="year">2017 – 2020</div>
-<h3>Musical Training – Electric Guitar alongside Scientific Highschool program</h3>
-<p>Studied electric guitar and live performance at Muzik-Adicted
-music school. Regular stage performances helped develop musical
-creativity and experience in live sound environments. Highschool studies focused on scientific subjects, such as Physics and Engineering Sciences,
-providing a strong foundation for later academic pursuits.</p>
+<!-- STORY BLOCKS -->
+<div class="bio-block reveal">
+    <div class="bio-text">
+        <h2>Music</h2>
+        <p>It all started at 14, when I spotted an AC/DC vinyl at a relative's place and fell
+        for rock. Until then my musical culture was thin — mostly charts and rap. In my last
+        year of middle school I decided to take electric guitar lessons, and that began a
+        passion for an instrument that connects so many crafts: lutherie, woodworking and
+        electronics.</p>
+        <p>Five years followed at the Muzik-Adicted music school, with two stage performances
+        every year. Playing in front of several hundred people sharpened my creativity,
+        broadened my musical culture — and gave me back a lot of confidence.</p>
+    </div>
+    <div class="bio-img">
+        <img src="images/bio_stage.jpg" alt="Matéo playing his SG on stage" loading="lazy">
+    </div>
 </div>
 
-<div class="timeline-item">
-<div class="year">2018 – Present</div>
-<h3>Electronics and Instrument Modification</h3>
-<p>Early experimentation with guitar electronics sparked an interest
-in circuit design, soldering and audio system modification.
-Projects included pickup rewiring, tone circuit modifications
-and small electronic modules for musical equipment.</p>
+<div class="bio-block flip reveal">
+    <div class="bio-img">
+        <img src="images/bio_sg_mods.jpg" alt="Matéo's modified SG with custom electronics" loading="lazy">
+    </div>
+    <div class="bio-text">
+        <h2>First modifications</h2>
+        <p>A tinkerer at heart, I couldn't resist taking my instrument apart myself the first
+        time it broke down. Once inside, I was fascinated by how simple the electronics were:
+        two potentiometers for volume, and two more in series with capacitors to roll off the
+        high frequencies.</p>
+        <p>That's how I got into electronics and electric guitar construction. After a few
+        months spent learning to solder, my guitar's electronics were completely replaced —
+        from the humble tone capacitor all the way to the pickups. Once I had tried several
+        pickup wiring schemes, it was time to move on to aesthetics.</p>
+    </div>
 </div>
 
-<div class="timeline-item">
-<div class="year">2020 – 2023</div>
-<h3>Bachelor in Acoustics and Vibrations</h3>
-<p>Completed 2 years of a Bachelor's degree in General Physics and Chemistry at <strong>Jean François Champollion Université, Albi (FRANCE)</strong>.
-Then specialized and completed a Bachelor's degree in Acoustics and Vibrations at <strong>Le-Mans Université, Le-Mans (FRANCE)</strong>.</p>
-<ul>
-<li>Wave physics and acoustics</li>
-<li>Structural vibrations</li>
-<li>Signal processing</li>
-<li>Electroacoustics</li>
-<li>Room acoustics</li>
-<li>Measurement techniques and Metrology</li>
-</ul>
+<div class="bio-block reveal">
+    <div class="bio-text">
+        <h2>A passion for electronics</h2>
+        <p>Electronics sits at the heart of how an electric guitar works, and I use it
+        constantly to shape the sound I want. Following schematics available online, I have
+        built several active accessory modules for the instrument.</p>
+        <p>Beyond sound, electronics has taken a big place in my spare time. It lets me
+        repair, modify or build a whole range of everyday devices — lamps, audio speakers,
+        and more.</p>
+    </div>
+    <div class="bio-img">
+        <img src="images/bio_soldering.jpg" alt="Aged humbucker cover and soldering work" loading="lazy">
+    </div>
 </div>
 
-<div class="timeline-item">
-<div class="year">2024 – Present</div>
-<h3>MSc Music and Acoustic Engineering</h3>
-<p>Currently pursuing the Master's degree in
-<strong>Music and Acoustic Engineering</strong>
-(specialization in Acoustic Engineering) at <strong>Politecnico di Milano, Milano (Italy)</strong>.</p>
-<ul>
-<li>Audio signal processing</li>
-<li>Machine learning for Audio</li>
-<li>Electroacoustic systems</li>
-<li>Acoustic modelling and vibration analysis</li>
-<li>Music information retrieval</li>
-</ul>
+<div class="bio-block flip reveal">
+    <div class="bio-img">
+        <img src="images/bio_sg_marshall.jpg" alt="Relic'd SG in front of a hand-painted Marshall stack" loading="lazy">
+    </div>
+    <div class="bio-text">
+        <h2>Towards a "vintage" aesthetic</h2>
+        <p>Passionate about old amps, speakers and guitars, I like reproducing the style and
+        wear of vintage models down to the smallest detail. I prepare ageing dyes (caffeine,
+        rust…) and simulate the oxidation of metal parts with acids.</p>
+        <p>Being a history nerd about electric guitars, I also make a point of using
+        components and parts close to the originals for visual fidelity — and I sometimes
+        borrow from classical art to re-dress my speaker cabinets and amplifiers, like the
+        hand-painted Marshall stack in the photo.</p>
+    </div>
 </div>
 
-</div>
+<!-- ACADEMIC JOURNEY -->
+<section class="section">
+    <div class="section-head reveal">
+        <div>
+            <span class="kicker">Background</span>
+            <h2>My academic journey</h2>
+        </div>
+    </div>
+    <p class="lead reveal">My academic and technical interests lie at the intersection of
+    <strong style="color:var(--text)">acoustics, signal processing, electroacoustics and sound
+    engineering</strong> — understanding and designing the systems that generate, shape and
+    analyse sound, from musical instruments to complex acoustic environments. It all grew out
+    of a passion for electric guitars and rock music.</p>
+
+    <div class="timeline reveal">
+
+        <div class="timeline-item">
+            <div class="year">2017 – 2020</div>
+            <h3>Musical training — electric guitar, alongside a scientific high-school program</h3>
+            <p>Studied electric guitar and live performance at the Muzik-Adicted music school,
+            with regular stage performances. High-school studies focused on physics and
+            engineering sciences, laying the foundation for what followed.</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">2018 – Present</div>
+            <h3>Electronics and instrument modification</h3>
+            <p>Early experimentation with guitar electronics sparked an interest in circuit
+            design, soldering and audio system modification: pickup rewiring, tone circuit
+            modifications and small electronic modules for musical equipment.</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">2020 – 2023</div>
+            <h3>Bachelor in Acoustics and Vibrations</h3>
+            <p>Two years of a Bachelor's degree in general physics and chemistry at
+            <strong style="color:var(--text)">Université Jean-François Champollion, Albi (France)</strong>,
+            then a specialised Bachelor's degree in Acoustics and Vibrations at
+            <strong style="color:var(--text)">Le Mans Université (France)</strong>.</p>
+            <ul>
+                <li>Wave physics and acoustics</li>
+                <li>Structural vibrations</li>
+                <li>Signal processing</li>
+                <li>Electroacoustics</li>
+                <li>Room acoustics</li>
+                <li>Measurement techniques and metrology</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">2024 – Present</div>
+            <h3>MSc Music and Acoustic Engineering</h3>
+            <p>Currently pursuing the Master's degree in
+            <strong style="color:var(--text)">Music and Acoustic Engineering</strong>
+            (Acoustic Engineering track) at
+            <strong style="color:var(--text)">Politecnico di Milano (Italy)</strong>.</p>
+            <ul>
+                <li>Audio signal processing</li>
+                <li>Machine learning for audio</li>
+                <li>Electroacoustic systems</li>
+                <li>Acoustic modelling and vibration analysis</li>
+                <li>Music information retrieval</li>
+            </ul>
+        </div>
+
+    </div>
 </section>
 
-<section style="margin-top:60px;">
-<h2>Research Interests</h2>
-<ul>
-<li>Medical Acoustics : Speech Signals and Breathing Physiology</li>
-<li>Audio signal processing and machine learning</li>
-<li>Acoustic modelling and vibration analysis</li>
-<li>Music information retrieval</li>
-<li>Vintage audio equipment and analog electronics</li>
-</ul>
+<!-- RESEARCH INTERESTS -->
+<section class="section reveal">
+    <div class="section-head">
+        <div>
+            <span class="kicker">Curiosity</span>
+            <h2>Research interests</h2>
+        </div>
+    </div>
+    <ul class="chip-list">
+        <li>Medical acoustics — speech signals &amp; breathing physiology</li>
+        <li>Audio signal processing &amp; machine learning</li>
+        <li>Acoustic modelling &amp; vibration analysis</li>
+        <li>Music information retrieval</li>
+        <li>Vintage audio equipment &amp; analog electronics</li>
+    </ul>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-band reveal">
+    <span class="kicker">Contact</span>
+    <h2>Want to know more?</h2>
+    <p>My full CV and the best ways to reach me.</p>
+    <div class="contact-actions">
+        <a class="btn btn-primary" href="assets/cv/Mateo_Vitalone_CV.pdf" data-cv-check target="_blank" rel="noopener">Download CV</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/MateoVTLN" target="_blank" rel="noopener">GitHub</a>
+    </div>
 </section>
 
 </main>
 
-<!-- =========================
-FOOTER
-========================= -->
-
-<footer>
-<div class="footer-logo">
-<img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-<strong>Matéo VITALONE</strong>
-</div>
-<div class="footer-icons">
-<a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank">
-<img src="icons/linkedinlogo.webp" alt="LinkedIn">
-</a>
-<a href="https://github.com/MateoVTLN?tab=repositories" target="_blank">
-<img src="icons/githublogo.png" alt="GitHub">
-</a>
-</div>
-<p>Matéo Vitalone Portfolio GitHub page, updated in March 2026</p>
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-logo">
+                <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+                <strong>Matéo VITALONE</strong>
+            </div>
+            <div class="footer-icons">
+                <a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="icons/linkedinlogo.webp" alt="LinkedIn"></a>
+                <a href="https://github.com/MateoVTLN?tab=repositories" target="_blank" rel="noopener" aria-label="GitHub"><img src="icons/githublogo.png" alt="GitHub"></a>
+                <a href="https://www.strava.com/athletes/159947739" target="_blank" rel="noopener" aria-label="Strava"><img src="icons/strava_logo.png" alt="Strava"></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="biblio.html">About me</a>
+            <a href="academic.html">Academic work</a>
+            <a href="sport.html">Sport</a>
+        </div>
+        <div class="footer-col">
+            <h4>Projects</h4>
+            <a href="project1.html">SG Custom</a>
+            <a href="project2.html">Folk-Bucker</a>
+            <a href="project3.html">Sustainer</a>
+        </div>
+    </div>
+    <p class="footer-note">© 2026 Matéo Vitalone · Static site hosted on GitHub Pages · Updated July 2026</p>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

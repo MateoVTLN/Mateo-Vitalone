@@ -1,192 +1,242 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matéo VITALONE – Projet Folk-Bucker</title>
-<link rel="icon" type="image/png" href="icons/logo_MV.png">
+<title>Folk-Bucker — Matéo Vitalone</title>
+<meta name="description" content="Installing an electric-guitar humbucker, volume control and switching inside an acoustic folk guitar, inspired by Nirvana's MTV Unplugged sound.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Folk-Bucker — an electric pickup in an acoustic guitar">
+<meta property="og:description" content="A humbucker, a volume pot and a switch inside a Cort folk guitar, inspired by Kurt Cobain's modified Martin D-18E.">
+<meta property="og:url" content="https://mateovtln.github.io/Mateo-Vitalone/project2.html">
+<meta property="og:image" content="https://mateovtln.github.io/Mateo-Vitalone/images/folk_result.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="icons/logo_mv.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- =========================
-HEADER
-========================= -->
-
-<header>
-<div class="logo">
-<img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-<span>Matéo VITALONE</span>
-</div>
-<nav>
-<a href="index.html">Home</a>
-<a href="biblio.html">About me</a>
-<a href="project1.html">Project 1</a>
-<a href="project2.html">Project 2</a>
-<a href="project3.html">Project 3</a>
-<a href="sport.html">Sport</a>
-</nav>
-<div class="header-icons">
-<a href="https://www.linkedin.com/" target="_blank">
-<img src="icons/linkedinlogo.webp" alt="LinkedIn">
-</a>
-</div>
+<!-- HEADER -->
+<header class="site-header">
+    <a class="logo" href="index.html">
+        <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+        <span>Matéo VITALONE</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="biblio.html">About</a>
+        <div class="nav-drop">
+            <button type="button">Projects <span class="caret"></span></button>
+            <ul class="drop-menu">
+                <li><a href="project1.html">SG Custom <span>Reshaping & ageing a Gibson SG replica</span></a></li>
+                <li><a href="project2.html">Folk-Bucker <span>An electric pickup in an acoustic guitar</span></a></li>
+                <li><a href="project3.html">Sustainer <span>Infinite-sustain feedback circuit</span></a></li>
+            </ul>
+        </div>
+        <a href="academic.html">Academic</a>
+        <a href="sport.html">Sport</a>
+    </nav>
+    <div class="header-actions">
+        <a class="icon-link" href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="icons/linkedinlogo.webp" alt="LinkedIn">
+        </a>
+        <a class="icon-link" href="https://github.com/MateoVTLN" target="_blank" rel="noopener" aria-label="GitHub">
+            <img src="icons/githublogo.png" alt="GitHub">
+        </a>
+    </div>
 </header>
 
-<!-- =========================
-HERO
-========================= -->
-
+<!-- HERO -->
 <div class="project-hero">
-<!-- \images\folk_hero.jpg -->
-<img src="images/folk_hero.jpg" alt="Manche de guitare folk">
-<div class="project-hero-overlay">
-<h1>Projet Folk-Bucker</h1>
-<p class="hero-sub">Un micro de guitare électrique… dans une guitare Folk</p>
-</div>
+    <img src="images/folk_hero.jpg" alt="Folk guitar on the workbench with humbucker and strings">
+    <div class="project-hero-overlay">
+        <h1>Folk-Bucker</h1>
+        <p class="hero-sub">An electric guitar pickup… inside a folk acoustic</p>
+        <div class="hero-meta">
+            <span class="tag">Electronics</span>
+            <span class="tag">Electroacoustics</span>
+            <span class="tag">Woodworking</span>
+        </div>
+    </div>
 </div>
 
-<!-- =========================
-MAIN CONTENT
-========================= -->
-
+<!-- MAIN -->
 <main>
 
-<!-- Intro -->
-<section class="project-intro">
-<p>Cela fait maintenant 2 ans que j'ai fait l'acquisition d'une guitare acoustique folk de la marque Cort. La guitare en elle seule est de bonne qualité&nbsp;: un jeu confortable pour les afficionados des guitares électriques, un corp en acajou tout juste assez vernis, des mécaniques fonctionnelles etc…</p>
-<p>Au tournant de l'année 2022, je me suis passionné pour l'album live MTV Unplugged de Nirvana, le son de la guitare Martin Co de Kurt Cobain m'a de suite plus autant en clean, qu'avec des effets. Je me suis donc demandé s'il était possible d'incorporer une partie de l'électronique présente dans une guitare électrique dans une guitare folk pour obtenir des résultats similaires.</p>
-<p>Sont donc à ma disposition&nbsp;: Un micro format humbucker de type chevalet (Imp. 15k Ohms), un potentiomètre Alpha (log) de 500k Ohms, un interrupteur On/Off 2 positions, un morceau de pickguard provenant d'une SG et quelques autres pièces esthétiques optionnelles (bouton de volume, rondelle graduée et plaque de pvc en guise de "Front control plate").</p>
+<section class="project-intro reveal">
+    <p>Two years ago I bought a Cort folk acoustic guitar. On its own it's a fine instrument:
+    comfortable to play for electric-guitar aficionados, a mahogany body with just enough
+    finish, functional tuners…</p>
+    <p>Around 2022 I became fascinated by Nirvana's <strong>MTV Unplugged</strong> live album.
+    The sound of Kurt Cobain's Martin guitar struck me immediately — clean as well as through
+    effects. So I asked myself: could part of the electronics of an electric guitar be built
+    into a folk guitar to get a similar result?</p>
+    <p>At my disposal: a bridge-position <strong>humbucker</strong> (15&nbsp;kΩ impedance), a
+    500&nbsp;kΩ logarithmic Alpha <strong>potentiometer</strong>, a 2-position on/off
+    <strong>switch</strong>, a piece of pickguard from an SG, and a few optional cosmetic parts
+    (volume knob, graduated washer and a PVC plate acting as a front control plate).</p>
 </section>
 
-<!-- =========================
-PRÉAMBULE : L'inspiration
-========================= -->
-
-<div class="step-title">
-<h2>Préambule&nbsp;: l'inspiration</h2>
+<!-- PREAMBLE -->
+<div class="step-title reveal">
+    <h2>Preamble</h2>
+    <span class="step-sub">The inspiration</span>
 </div>
 
-<div class="three-col">
-<figure class="img-cap">
-<!-- \images\folk_kurt.jpg -->
-<img src="images/folk_kurt.jpg" alt="Kurt Cobain et sa Martin D18E">
-<figcaption>Kurt Cobain et sa Martin D18E modifiée durant sa performance sur MTV Unplugged (1994)</figcaption>
-</figure>
+<div class="three-col reveal">
+    <figure class="img-cap">
+        <img src="images/folk_kurt.jpg" alt="Kurt Cobain with his Martin D-18E" loading="lazy">
+        <figcaption>Kurt Cobain and his modified Martin D-18E during the MTV Unplugged performance (1994)</figcaption>
+    </figure>
 
-<div class="step-text">
-<p>Peu de temps après avoir découvert l'album live "MTV Unplugged" de Nirvana, je me suis intéressé aux instruments utilisés durant cette performance. Le son provenant de la guitare de Kurt Cobain me plaisait autant qu'il pouvait me surprendre&nbsp;: il jouait sur une guitare acoustique Martin Co&nbsp;!</p>
-<p>Ayant acquis à cette période ma première guitare folk, je me suis donc lancé le défi de reproduire quelques caractéristiques électroniques de cette guitare comme l'installation d'un micro, et d'un réglage de volume.</p>
+    <div class="step-text">
+        <p>Shortly after discovering Nirvana's "MTV Unplugged" live album, I looked into the
+        instruments used during that performance. The sound coming from Kurt Cobain's guitar
+        pleased me as much as it surprised me: he was playing an <strong>acoustic Martin</strong>
+        fitted with electric-guitar pickups!</p>
+        <p>Having just acquired my first folk guitar at the time, I set myself the challenge of
+        reproducing some of that guitar's electronic features — installing a pickup and a
+        volume control.</p>
+    </div>
+
+    <figure class="img-cap">
+        <img src="images/folk_martin.jpg" alt="Close-up of the pickups on the Martin D-18E" loading="lazy">
+        <figcaption>Close-up of the pickups on the Martin D-18E used during the live show (1994)</figcaption>
+    </figure>
 </div>
 
-<figure class="img-cap">
-<!-- \images\folk_martin.jpg -->
-<img src="images/folk_martin.jpg" alt="Micros sur la Martin D18E">
-<figcaption>Vu rapprochée des micros présents sur le Martin D18E utilisée durant le live (1994)</figcaption>
-</figure>
+<!-- STEP 1 -->
+<div class="step-title reveal">
+    <h2>Step 1</h2>
+    <span class="step-sub">Preparations</span>
 </div>
 
-<!-- =========================
-ÉTAPE 1 : Préparatifs
-========================= -->
+<div class="three-col reveal">
+    <figure class="img-cap">
+        <img src="images/folk_before.jpg" alt="The guitar before modification" loading="lazy">
+        <figcaption>The guitar before its modifications — Cort AF510M</figcaption>
+    </figure>
 
-<div class="step-title">
-<h2>Etape 1&nbsp;:</h2>
-<span class="step-sub">Préparatifs</span>
+    <div class="step-text">
+        <p>First, the old strings had to go, leaving the top of the instrument and the sound
+        hole fully exposed. Note that this modification is only possible on instruments with
+        <strong>steel strings</strong> — not nylon — since the pickup relies on the magnetic
+        field disturbed by vibrating steel strings.</p>
+        <p>Then came the layout of the necessary drillings: the 500&nbsp;kΩ log potentiometer,
+        the 6.35&nbsp;mm jack output, the DPDT switch, and the pickup height-adjustment
+        screws.</p>
+        <p>The potentiometer sits close to the playing hand, near the bridge — Fender
+        Telecaster style.</p>
+    </div>
+
+    <figure class="img-cap">
+        <img src="images/folk_pot.jpg" alt="500k log potentiometer with gold knob" loading="lazy">
+        <figcaption>Logarithmic potentiometer (500&nbsp;kΩ) used to control the pickup's output volume</figcaption>
+    </figure>
 </div>
 
-<div class="three-col">
-<figure class="img-cap">
-<!-- \images\folk_before.jpg -->
-<img src="images/folk_before.jpg" alt="La guitare avant modification">
-<figcaption>La guitare avant ses modifications<br>modèle Cort Af-510</figcaption>
-</figure>
-
-<div class="step-text">
-<p>Pour commencer, il a fallu se débarrasser des anciennes cordes pour laisser la table de l'instrument ainsi que la rosace à découvert. Il est important de noter que cette modification n'est possible que pour des instruments à cordes métalliques et non en nylon, pour cause le magnétisme généré par les vibrations des cordes métalliques.</p>
-<p>Ensuite vient l'étape de la localisation des perçages nécessaires (potentiomètre 500K Ohms Log, sortie Jack 6,35, switch DPDT, vis de réglage de la hauteur du micro).</p>
-<p>Le potentiomètre est placé près du jeu (niveau chevalet) à la façon d'une Fender Telecaster.</p>
+<!-- STEP 2 -->
+<div class="step-title reveal">
+    <h2>Step 2</h2>
+    <span class="step-sub">Adaptation and assembly</span>
 </div>
 
-<figure class="img-cap">
-<!-- \images\folk_pot.jpg -->
-<img src="images/folk_pot.jpg" alt="Potentiomètre logarithmique 500k Ohms">
-<figcaption>Potentiomètre logarithmique (500k Ohms) utilisé pour régler le volume de sortie du micro</figcaption>
-</figure>
+<div class="two-col reveal">
+    <figure class="img-cap">
+        <img src="images/folk_humbucker.jpg" alt="Humbucker and its SG pickguard support" loading="lazy">
+        <figcaption>The double-coil "humbucker" pickup and its support, cut from an SG pickguard</figcaption>
+    </figure>
+
+    <figure class="img-cap">
+        <img src="images/folk_jack.jpg" alt="Potentiometer and jack output being screwed in" loading="lazy">
+        <figcaption>Potentiometer and jack output screwed into the top</figcaption>
+    </figure>
 </div>
 
-<!-- =========================
-ÉTAPE 2 : Adaptation et montage
-========================= -->
-
-<div class="step-title">
-<h2>Etape 2&nbsp;:</h2>
-<span class="step-sub">Adaptation et montage<br><em style="font-size:0.8em; color:#888;">(en cours d'écriture)</em></span>
+<div class="step-text reveal">
+    <p>The humbucker was mounted on a piece of SG pickguard trimmed to span the sound hole,
+    which lets the pickup sit under the strings at the right height without touching the
+    soundboard. The height-adjustment screws go through the plate, so the distance between the
+    pole pieces and the strings stays adjustable.</p>
+    <p>The controls were then assembled: the volume potentiometer near the bridge, and on the
+    lower bout a small home-made control plate carrying the on/off switch and the 6.35&nbsp;mm
+    jack output. Inside the body, the pickup signal runs through the switch to the volume pot
+    and out to the jack; a ground wire connects to the bridge to ground the strings and keep
+    hum at bay.</p>
+    <p>Once strung up again, the guitar was tested through a VOX ToneLab and a Marshall stack —
+    clean and with effects. The result speaks for itself in the videos below.</p>
 </div>
 
-<div class="two-col">
-<figure class="img-cap">
-<!-- \images\folk_humbucker.jpg -->
-<img src="images/folk_humbucker.jpg" alt="Micro humbucker et son support">
-<figcaption>Le micro double bobinage utilisé ("Humbucker") et son support (morceau de pickguard de SG)</figcaption>
-</figure>
-
-<figure class="img-cap">
-<!-- \images\folk_jack.jpg -->
-<img src="images/folk_jack.jpg" alt="Potentiomètre et sortie Jack vissées">
-<figcaption>Potentiomètre et sortie Jack vissées</figcaption>
-</figure>
+<div class="step-links reveal">
+    <p><strong>Videos of the making:</strong></p>
+    <p>1) Timelapse + description — <a href="https://dai.ly/k5BqTMUE8mx12A3kHw" target="_blank" rel="noopener">dai.ly/k5BqTMUE8mx12A3kHw</a></p>
+    <p>2) Test with effects — <a href="https://dai.ly/x8syox" target="_blank" rel="noopener">dai.ly/x8syox</a></p>
 </div>
 
-<div class="step-links">
-<p>Lien vers les vidéos du "Making"&nbsp;:</p>
-<p>1) Timelapse + description&nbsp;: <a href="https://dai.ly/k5BqTMUE8mx12A3kHw" target="_blank">dai.ly/k5BqTMUE8mx12A3kHw</a></p>
-<p>2) Test avec effets&nbsp;: <a href="https://dai.ly/x8syox" target="_blank">dai.ly/x8syox</a></p>
+<div class="three-col reveal">
+    <figure class="img-cap">
+        <img src="images/folk_result.jpg" alt="Final result: the Folk-Bucker in front of a Marshall" loading="lazy">
+        <figcaption>The final result</figcaption>
+    </figure>
+
+    <figure class="img-cap">
+        <img src="images/folk_zoom_jack.jpg" alt="Close-up on the output plate and its switch" loading="lazy">
+        <figcaption>Close-up on the output and its switch</figcaption>
+    </figure>
+
+    <figure class="img-cap">
+        <img src="images/folk_wiring.jpg" alt="Inside view of the wiring" loading="lazy">
+        <figcaption>Inside view of the control wiring and string grounding</figcaption>
+    </figure>
 </div>
 
-<div class="three-col" style="margin-top:30px;">
-<figure class="img-cap">
-<!-- \images\folk_result.jpg -->
-<img src="images/folk_result.jpg" alt="Résultat final">
-<figcaption>Résultat final</figcaption>
-</figure>
-
-<figure class="img-cap">
-<!-- \images\folk_zoom_jack.jpg -->
-<img src="images/folk_zoom_jack.jpg" alt="Zoom sur la sortie et son switch">
-<figcaption>Zoom sur la sortie et son switch</figcaption>
-</figure>
-
-<figure class="img-cap">
-<!-- \images\folk_wiring.jpg -->
-<img src="images/folk_wiring.jpg" alt="Vue intérieure du câblage">
-<figcaption>Vue intérieure du câblage des contrôles et mise à la masse des cordes</figcaption>
-</figure>
-</div>
+<!-- NEXT PROJECT -->
+<section class="contact-band reveal">
+    <span class="kicker">Next project</span>
+    <h2>Sustainer</h2>
+    <p>Making a note ring forever: an active electromagnetic feedback circuit.</p>
+    <div class="contact-actions">
+        <a class="btn btn-primary" href="project3.html">Read the story →</a>
+    </div>
+</section>
 
 </main>
 
-<!-- =========================
-FOOTER
-========================= -->
-
-<footer>
-<div class="footer-logo">
-<img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-<strong>Matéo VITALONE</strong>
-</div>
-<div class="footer-icons">
-<a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank">
-<img src="icons/linkedinlogo.webp" alt="LinkedIn">
-</a>
-<a href="https://github.com/MateoVTLN?tab=repositories" target="_blank">
-<img src="icons/githublogo.png" alt="GitHub">
-</a>
-</div>
-<p>Matéo Vitalone Portfolio GitHub page, updated in March 2026</p>
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-logo">
+                <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+                <strong>Matéo VITALONE</strong>
+            </div>
+            <div class="footer-icons">
+                <a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="icons/linkedinlogo.webp" alt="LinkedIn"></a>
+                <a href="https://github.com/MateoVTLN?tab=repositories" target="_blank" rel="noopener" aria-label="GitHub"><img src="icons/githublogo.png" alt="GitHub"></a>
+                <a href="https://www.strava.com/athletes/159947739" target="_blank" rel="noopener" aria-label="Strava"><img src="icons/strava_logo.png" alt="Strava"></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="biblio.html">About me</a>
+            <a href="academic.html">Academic work</a>
+            <a href="sport.html">Sport</a>
+        </div>
+        <div class="footer-col">
+            <h4>Projects</h4>
+            <a href="project1.html">SG Custom</a>
+            <a href="project2.html">Folk-Bucker</a>
+            <a href="project3.html">Sustainer</a>
+        </div>
+    </div>
+    <p class="footer-note">© 2026 Matéo Vitalone · Static site hosted on GitHub Pages · Updated July 2026</p>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

@@ -3,146 +3,223 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matéo VITALONE – Portfolio</title>
+<title>Matéo Vitalone — Acoustic Engineering & Audio Portfolio</title>
+<meta name="description" content="Portfolio of Matéo Vitalone, MSc student in Music and Acoustic Engineering at Politecnico di Milano. Guitar electronics projects, academic work in acoustics and audio machine learning, and sport tracking.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Matéo Vitalone — Acoustic Engineering & Audio Portfolio">
+<meta property="og:description" content="Guitar electronics projects, acoustics & audio ML academic work, and sport tracking.">
+<meta property="og:url" content="https://mateovtln.github.io/Mateo-Vitalone/">
+<meta property="og:image" content="https://mateovtln.github.io/Mateo-Vitalone/images/brand_banner.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="icons/logo_mv.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <!-- HEADER -->
-<header>
-<div class="logo">
-    <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-    <span>Matéo VITALONE</span>
-</div>
-<nav>
-    <a href="index.html">Home</a>
-    <a href="biblio.html">About me</a>
-    <a href="project1.html">Project 1</a>
-    <a href="project2.html">Project 2</a>
-    <a href="project3.html">Project 3</a>
-    <a href="sport.html">Sport</a>
-</nav>
-<div class="header-icons">
-    <a href="https://www.linkedin.com/" target="_blank">
-        <img src="icons/linkedinlogo.webp" alt="LinkedIn">
+<header class="site-header">
+    <a class="logo" href="index.html">
+        <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+        <span>Matéo VITALONE</span>
     </a>
-</div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="biblio.html">About</a>
+        <div class="nav-drop">
+            <button type="button">Projects <span class="caret"></span></button>
+            <ul class="drop-menu">
+                <li><a href="project1.html">SG Custom <span>Reshaping & ageing a Gibson SG replica</span></a></li>
+                <li><a href="project2.html">Folk-Bucker <span>An electric pickup in an acoustic guitar</span></a></li>
+                <li><a href="project3.html">Sustainer <span>Infinite-sustain feedback circuit</span></a></li>
+            </ul>
+        </div>
+        <a href="academic.html">Academic</a>
+        <a href="sport.html">Sport</a>
+    </nav>
+    <div class="header-actions">
+        <a class="icon-link" href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="icons/linkedinlogo.webp" alt="LinkedIn">
+        </a>
+        <a class="icon-link" href="https://github.com/MateoVTLN" target="_blank" rel="noopener" aria-label="GitHub">
+            <img src="icons/githublogo.png" alt="GitHub">
+        </a>
+    </div>
 </header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg" style="background-image:url('images/stage_flare.jpg');"></div>
+    <div class="hero-inner">
+        <span class="kicker">MSc Music &amp; Acoustic Engineering · Politecnico di Milano</span>
+        <h1 class="hero-title">Sound, circuits &amp; <em>acoustics</em>.</h1>
+        <p class="hero-sub">I'm Matéo — an acoustic engineering student who grew up modifying
+        electric guitars. This site gathers my hands-on builds, my academic work in signal
+        processing and acoustics, and the running that keeps it all balanced.</p>
+        <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects">Explore my projects</a>
+            <a class="btn btn-ghost" href="academic.html">Academic work</a>
+        </div>
+    </div>
+</section>
 
 <!-- MAIN -->
 <main>
 
-<!-- INTRO -->
-<section class="intro">
-    <h1>Portfolio</h1>
-    <br>
-    <p>This website presents a selection of projects developed by myself all along my student carreer.
-    The purpose of this portfolio is to showcase work related to signal processing,
-    sound engineering, acoustics, machine learning for audio, and electronic design.</p>
-    <br>
-    <p>This webpage is also a tool for me to centralise my other data such as my sport activities (<a href="sport.html" class="read-more">Read more →</a>).</p>
-</section>
-
-<!-- PROJECTS — 3 COLUMNS -->
-<section>
-    <h2>Some of my past projects</h2>
-    <br>
+<!-- PROJECTS -->
+<section class="section" id="projects">
+    <div class="section-head reveal">
+        <div>
+            <span class="kicker">Hands-on</span>
+            <h2>Personal projects</h2>
+        </div>
+    </div>
     <div class="project-grid">
 
-        <div class="project-card">
+        <a class="project-card reveal" href="project1.html">
             <div class="card-img-wrap">
-                <img src="images/project1.jpg" alt="Project 1">
+                <img src="images/sg_hero2.jpeg" alt="Custom relic'd SG guitar" loading="lazy">
             </div>
             <div class="card-body">
-                <h3>Neural Network Model for Music Genre Classification</h3>
-                <p>Audio machine learning project focused on music genre classification
-                using neural networks and spectral representations.</p>
-                <a href="project1.html" class="read-more">Read more →</a>
+                <div class="card-tags"><span class="tag">Lutherie</span><span class="tag">Finishing</span><span class="tag">Relic</span></div>
+                <h3>SG Custom</h3>
+                <p>Re-carving the bevels, refinishing and artificially ageing an SG replica
+                to bring it as close as possible to a genuine 1961 Gibson SG.</p>
+                <span class="read-more">Read the story →</span>
             </div>
-        </div>
+        </a>
 
-        <div class="project-card">
+        <a class="project-card reveal" href="project2.html">
             <div class="card-img-wrap">
-                <img src="images/project2.jpg" alt="Project 2">
+                <img src="images/folk_result.jpg" alt="Folk guitar with humbucker installed" loading="lazy">
             </div>
             <div class="card-body">
-                <h3>Project 2</h3>
-                <p>Electronic and electroacoustic system design including amplifier
-                topologies and signal chain optimization.</p>
-                <a href="project2.html" class="read-more">Read more →</a>
+                <div class="card-tags"><span class="tag">Electronics</span><span class="tag">Electroacoustics</span></div>
+                <h3>Folk-Bucker</h3>
+                <p>Installing an electric-guitar humbucker, volume control and switching
+                inside an acoustic folk guitar, inspired by Nirvana's MTV Unplugged sound.</p>
+                <span class="read-more">Read the story →</span>
             </div>
-        </div>
+        </a>
 
-        <div class="project-card">
+        <a class="project-card reveal" href="project3.html">
             <div class="card-img-wrap">
-                <img src="images/project3.jpg" alt="Project 3">
+                <img src="images/bio_soldering.jpg" alt="Guitar pickup and soldering work" loading="lazy">
             </div>
             <div class="card-body">
-                <h3>Project 3</h3>
-                <p>Acoustic modelling and vibration analysis of multi-degree-of-freedom
-                mechanical systems.</p>
-                <a href="project3.html" class="read-more">Read more →</a>
+                <div class="card-tags"><span class="tag">Analog circuit</span><span class="tag">Op-amp</span><span class="tag">In progress</span></div>
+                <h3>Sustainer</h3>
+                <p>An active feedback circuit that drives the strings electromagnetically,
+                letting a note ring out indefinitely — an op-amp, filters and a driver coil.</p>
+                <span class="read-more">Read the story →</span>
             </div>
-        </div>
+        </a>
 
     </div>
+</section>
+
+<!-- ACADEMIC PREVIEW -->
+<section class="section reveal">
+    <div class="section-head">
+        <div>
+            <span class="kicker">Research &amp; coursework</span>
+            <h2>Academic work</h2>
+        </div>
+        <a class="head-link" href="academic.html">Browse all →</a>
+    </div>
+    <p class="lead">Reports and projects from my MSc in Music and Acoustic Engineering —
+    audio signal processing, machine learning for audio, electroacoustics, and acoustic
+    modelling. Each entry comes with its report and, where available, the code.</p>
 </section>
 
 <!-- SPORT PREVIEW -->
-<section class="sport-preview">
-
-    <div class="sport-preview-header">
-        <h2>Latest Activities</h2>
-        <a href="sport.html">See all →</a>
+<section class="section">
+    <div class="section-head reveal">
+        <div>
+            <span class="kicker">Off the workbench</span>
+            <h2>Latest activities</h2>
+        </div>
+        <a class="head-link" href="sport.html">See the full dashboard →</a>
     </div>
 
-    <div class="activities-strip" id="home-activity-list">
-        <p style="color:#bfbfbf; font-size:13px;">Loading activities...</p>
+    <div class="activities-strip reveal" id="home-activity-list">
+        <p style="color:var(--text-faint); font-size:13px;">Loading activities…</p>
     </div>
 
-    <div class="strava-link-banner">
-        <a href="https://www.strava.com/athletes/159947739" target="_blank">
+    <div class="strava-link-banner reveal">
+        <a href="https://www.strava.com/athletes/159947739" target="_blank" rel="noopener">
             <img src="icons/strava_logo.png" alt="Strava">
         </a>
         <span>Follow my training on Strava</span>
-        <a class="strava-profile-link" href="https://www.strava.com/athletes/159947739" target="_blank">View profile →</a>
+        <a class="strava-profile-link" href="https://www.strava.com/athletes/159947739" target="_blank" rel="noopener">View profile →</a>
     </div>
-
 </section>
 
-<!-- GALLERY CAROUSEL -->
-<section class="carousel-section">
-    <h2>Gallery</h2>
+<!-- GALLERY -->
+<section class="section reveal">
+    <div class="section-head">
+        <div>
+            <span class="kicker">Snapshots</span>
+            <h2>Gallery</h2>
+        </div>
+    </div>
     <div class="carousel-outer">
         <div class="carousel-inner" id="carousel-inner"></div>
-        <button class="carousel-btn prev" id="carousel-prev">&#10094;</button>
-        <button class="carousel-btn next" id="carousel-next">&#10095;</button>
+        <button class="carousel-btn prev" id="carousel-prev" aria-label="Previous image">&#10094;</button>
+        <button class="carousel-btn next" id="carousel-next" aria-label="Next image">&#10095;</button>
         <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-band reveal" id="contact">
+    <span class="kicker">Contact</span>
+    <h2>Let's get in touch</h2>
+    <p>Whether it's acoustics, audio engineering, guitar electronics or an internship
+    opportunity — the best way to reach me is on LinkedIn.</p>
+    <div class="contact-actions">
+        <a class="btn btn-primary" href="assets/cv/Mateo_Vitalone_CV.pdf" data-cv-check target="_blank" rel="noopener">Download CV</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/MateoVTLN" target="_blank" rel="noopener">GitHub</a>
     </div>
 </section>
 
 </main>
 
 <!-- FOOTER -->
-<footer>
-<div class="footer-logo">
-    <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-    <strong>Matéo VITALONE</strong>
-</div>
-<div class="footer-icons">
-    <a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank">
-        <img src="icons/linkedinlogo.webp" alt="LinkedIn">
-    </a>
-    <a href="https://github.com/MateoVTLN?tab=repositories" target="_blank">
-        <img src="icons/githublogo.png" alt="GitHub">
-    </a>
-</div>
-<p>Matéo Vitalone Portfolio GitHub page, updated in March 2026</p>
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-logo">
+                <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+                <strong>Matéo VITALONE</strong>
+            </div>
+            <div class="footer-icons">
+                <a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="icons/linkedinlogo.webp" alt="LinkedIn"></a>
+                <a href="https://github.com/MateoVTLN?tab=repositories" target="_blank" rel="noopener" aria-label="GitHub"><img src="icons/githublogo.png" alt="GitHub"></a>
+                <a href="https://www.strava.com/athletes/159947739" target="_blank" rel="noopener" aria-label="Strava"><img src="icons/strava_logo.png" alt="Strava"></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="biblio.html">About me</a>
+            <a href="academic.html">Academic work</a>
+            <a href="sport.html">Sport</a>
+        </div>
+        <div class="footer-col">
+            <h4>Projects</h4>
+            <a href="project1.html">SG Custom</a>
+            <a href="project2.html">Folk-Bucker</a>
+            <a href="project3.html">Sustainer</a>
+        </div>
+    </div>
+    <p class="footer-note">© 2026 Matéo Vitalone · Static site hosted on GitHub Pages · Updated July 2026</p>
 </footer>
 
-<!-- SCRIPTS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

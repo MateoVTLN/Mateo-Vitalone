@@ -1,218 +1,247 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matéo VITALONE – Projet SG Custom</title>
-<link rel="icon" type="image/png" href="icons/logo_MV.png">
+<title>SG Custom — Matéo Vitalone</title>
+<meta name="description" content="Re-carving the bevels, refinishing and artificially ageing an SG replica to bring it as close as possible to a genuine 1961 Gibson SG.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SG Custom — a matter of aesthetics">
+<meta property="og:description" content="Re-carving, refinishing and relic'ing an SG replica into a faithful 1961 Gibson SG tribute.">
+<meta property="og:url" content="https://mateovtln.github.io/Mateo-Vitalone/project1.html">
+<meta property="og:image" content="https://mateovtln.github.io/Mateo-Vitalone/images/sg_hero2.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="icons/logo_mv.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- =========================
-HEADER
-========================= -->
-
-<header>
-<div class="logo">
-<img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-<span>Matéo VITALONE</span>
-</div>
-<nav>
-<a href="index.html">Home</a>
-<a href="biblio.html">About me</a>
-<a href="project1.html">Project 1</a>
-<a href="project2.html">Project 2</a>
-<a href="project3.html">Project 3</a>
-<a href="sport.html">Sport</a>
-</nav>
-<div class="header-icons">
-<a href="https://www.linkedin.com/" target="_blank">
-<img src="icons/linkedinlogo.webp" alt="LinkedIn">
-</a>
-</div>
+<!-- HEADER -->
+<header class="site-header">
+    <a class="logo" href="index.html">
+        <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+        <span>Matéo VITALONE</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="biblio.html">About</a>
+        <div class="nav-drop">
+            <button type="button">Projects <span class="caret"></span></button>
+            <ul class="drop-menu">
+                <li><a href="project1.html">SG Custom <span>Reshaping & ageing a Gibson SG replica</span></a></li>
+                <li><a href="project2.html">Folk-Bucker <span>An electric pickup in an acoustic guitar</span></a></li>
+                <li><a href="project3.html">Sustainer <span>Infinite-sustain feedback circuit</span></a></li>
+            </ul>
+        </div>
+        <a href="academic.html">Academic</a>
+        <a href="sport.html">Sport</a>
+    </nav>
+    <div class="header-actions">
+        <a class="icon-link" href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="icons/linkedinlogo.webp" alt="LinkedIn">
+        </a>
+        <a class="icon-link" href="https://github.com/MateoVTLN" target="_blank" rel="noopener" aria-label="GitHub">
+            <img src="icons/githublogo.png" alt="GitHub">
+        </a>
+    </div>
 </header>
 
-<!-- =========================
-HERO
-========================= -->
-
+<!-- HERO -->
 <div class="project-hero">
-<!-- \images\sg_hero.jpg -->
-<img src="images/sg_hero2.jpeg" alt="Guitares sur fond sombre">
-<div class="project-hero-overlay">
-<h1>Projet SG Custom</h1>
-<p class="hero-sub">Une affaire d'esthétique</p>
-</div>
+    <img src="images/sg_hero2.jpeg" alt="Guitars on a dark background">
+    <div class="project-hero-overlay">
+        <h1>SG Custom</h1>
+        <p class="hero-sub">A matter of aesthetics — turning a modern replica into a 1961 relic</p>
+        <div class="hero-meta">
+            <span class="tag">Lutherie</span>
+            <span class="tag">Finishing</span>
+            <span class="tag">Artificial ageing</span>
+        </div>
+    </div>
 </div>
 
-<!-- =========================
-MAIN CONTENT
-========================= -->
-
+<!-- MAIN -->
 <main>
 
-<!-- Intro -->
-<section class="project-intro">
-<p>En grande partie inspiré par Angus Young dans le choix de mon 1er instrument, c'est sur une réplique de Gibson SG que j'ai fait mes débuts. La forme SG ("Solid Guitar"), facilement reconnaissable, est issue de l'imagination de Ted McCarty mettant au point ce modèle en 1961. Les "cornes" de l'instrument garantissent un confort de jeu tout le long du manche, les chanfreins du corps permettant quant à eux d'alléger l'instrument tout en le rendant plus attrayant.</p>
-<p>Cependant, la réplique que j'avais en ma possession était légèrement différente dans sa conception&nbsp;: les chanfreins des cornes et du corps étaient moins prononcés et le design de la tête du manche était différent de celui utilisé par Gibson. Au delà des formes, l'aspect neuf de l'instrument me paraissait trop "parfait" pour une guitare qui se doit être vintage.</p>
-<p>Il m'est alors venu l'idée de redessiner les contours en plus de vieillir artificiellement l'instrument pour s'approcher au mieux d'une véritable Gibson SG de 1961.</p>
+<section class="project-intro reveal">
+    <p>Largely inspired by Angus Young when choosing my first instrument, I started out on a
+    replica of a Gibson SG. The instantly recognisable SG shape ("Solid Guitar") came from Ted
+    McCarty, who designed the model in 1961. The instrument's "horns" guarantee playing comfort
+    along the whole neck, while the body bevels lighten the guitar and make it more striking.</p>
+    <p>The replica I owned, however, was slightly different in its construction: the bevels of
+    the horns and body were less pronounced, and the headstock shape differed from Gibson's.
+    Beyond the contours, the brand-new look of the instrument felt too "perfect" for a guitar
+    that ought to be vintage.</p>
+    <p>So I decided to <strong>re-carve the contours</strong> and <strong>artificially age</strong>
+    the instrument, to get as close as possible to a genuine 1961 Gibson SG.</p>
 </section>
 
-<!-- =========================
-ÉTAPE 1 : Ré usinage des contours
-========================= -->
-
-<div class="step-title">
-<h2>Etape 1&nbsp;:</h2>
-<span class="step-sub">Ré usinage des contours</span>
+<!-- STEP 1 -->
+<div class="step-title reveal">
+    <h2>Step 1</h2>
+    <span class="step-sub">Re-carving the contours</span>
 </div>
 
-<div class="three-col">
-<figure class="img-cap">
-<!-- \images\sg_before.jpg -->
-<img src="images/originale.jpeg" alt="SG avant modification">
-<figcaption>L'instrument avant toute modification</figcaption>
+<div class="three-col reveal">
+    <figure class="img-cap">
+        <img src="images/originale.jpeg" alt="The SG before any modification" loading="lazy">
+        <figcaption>The instrument before any modification</figcaption>
+    </figure>
+
+    <div class="step-text">
+        <p>The first challenge was stripping off the thick layer of paint and polyurethane
+        varnish to bring the wood back to bare grain.</p>
+        <p>Once the grain was exposed, I could start deepening the bevels with wood rasps,
+        working them towards the profile of the 1961 originals.</p>
+        <p>It was also the opportunity to enlarge the pickup cavities, which now lets me
+        disconnect or replace each pickup independently.</p>
+    </div>
+
+    <figure class="img-cap">
+        <img src="images/original bevels.jpeg" alt="Left horn of a similar SG" loading="lazy">
+        <figcaption>Left horn of an SG similar to mine — the factory bevels are present but soft.<br>
+        <a href="https://www.music-guitars.fr/gibson-sg-standard-a-trans-ebony-p-paf-pro-dimarzio-years-2-anos-a-trans-ebony.html" target="_blank" rel="noopener">music-guitars.fr</a></figcaption>
+    </figure>
+</div>
+
+<div class="three-col reveal">
+    <figure class="img-cap">
+        <img src="images/1961 sg horns and bevels.jpeg" alt="Left horns of two 1961 models" loading="lazy">
+        <figcaption>Left horns of two 1961 models<br>
+        <a href="https://www.premierguitar.com/guitars/electric-guitars/gibson-sg-standard-2-anos-a-trans-ebony" target="_blank" rel="noopener">premierguitar.com</a></figcaption>
+    </figure>
+
+    <div class="step-text">
+        <p>With the contours redrawn, the body was repainted with a primer coat, three coats
+        of paint and a coat of varnish.</p>
+        <p>Visually the guitar was now much more faithful to the 1961 model — but one detail
+        was missing. Through use, storage and the climates they were exposed to, those 1960s
+        guitars have aged. Even the best-preserved show the same phenomena on the finish, the
+        hardware and the plastics.</p>
+    </div>
+
+    <figure class="img-cap">
+        <img src="images/bevels finish and unfinished.jpeg" alt="Side view of the bevels of a real 1961 SG" loading="lazy">
+        <figcaption>Side view of the bevels of a genuine 1961 SG<br>
+        <a href="https://equipboard.com/items/gibson-sg-les-paul" target="_blank" rel="noopener">equipboard.com</a></figcaption>
+    </figure>
+</div>
+
+<!-- STEP 2 -->
+<div class="step-title reveal">
+    <h2>Step 2</h2>
+    <span class="step-sub">Artificial ageing</span>
+</div>
+
+<div class="three-col reveal">
+    <figure class="img-cap">
+        <img src="images/sg perso actuelle.jpeg" alt="The finished SG" loading="lazy">
+        <figcaption>My SG once completed</figcaption>
+    </figure>
+
+    <div class="step-text">
+        <p>To replicate the scars of time I studied several instruments found online, but my
+        main inspiration came from the book <em>« Guitare, un art de vivre »</em> — Louis
+        Bertignac's SG.</p>
+        <p>I started by damaging the varnish and paint of the body to simulate heavy wear. The
+        plating and hardware in contact with the hand was dulled to reproduce the action of
+        sweat on gold parts. The volume and tone knobs were swapped for a format historically
+        correct for the era.</p>
+    </div>
+
+    <figure class="img-cap">
+        <img src="images/sg bertignac.png" alt="1962 Gibson SG Junior — Louis Bertignac" loading="lazy">
+        <figcaption>1962 Gibson SG Junior — Louis Bertignac<br>
+        <a href="https://www.guitarworld.fr/louis-bertignac-sg-junior" target="_blank" rel="noopener">guitarworld.fr</a></figcaption>
+    </figure>
+</div>
+
+<div class="three-col reveal">
+    <figure class="img-cap">
+        <img src="images/craquage output jack.jpg" alt="Finish cracks around the output jack" loading="lazy">
+        <figcaption>Close-up of the finish cracks around the output jack</figcaption>
+    </figure>
+
+    <div class="step-text">
+        <p>All that remained was reproducing the crazing of the nitrocellulose finish found on
+        every vintage guitar — again using a 1961 SG Standard as the reference.</p>
+        <p>I recreated the random crack patterns across the whole body and headstock, making
+        them converge towards the most stressed points: the output jack, the potentiometers
+        and the screws.</p>
+        <figure class="img-cap" style="margin:14px 0;">
+            <img src="images/craquage headstock.jpg" alt="Finish cracks on the headstock" loading="lazy">
+            <figcaption>Close-up of the headstock crazing</figcaption>
+        </figure>
+        <p>I also drew on the work of luthier Michaël Boudoux (Relic'Art Guitars) for the
+        ageing of this instrument.</p>
+    </div>
+
+    <figure class="img-cap">
+        <img src="images/1961 sg.jpeg" alt="1961 Gibson SG Standard" loading="lazy">
+        <figcaption>1961 Gibson SG Standard — reference</figcaption>
+    </figure>
+</div>
+
+<!-- FULL-WIDTH CONCERT PHOTO -->
+<figure class="img-cap reveal" style="margin:48px 0;">
+    <img src="images/sg_hero.jpeg" alt="Overview of the guitar at a concert" loading="lazy">
+    <figcaption>Overview of the guitar | Concert at Cap Découverte | "Hook For Xmas" | December 2021</figcaption>
 </figure>
 
-<div class="step-text">
-<p>Le premier défi fut de retirer l'épaisse couche de peinture et de vernis polyuréthane pour mettre le bois à nu.</p>
-<p>Une fois le grain apparent, nous pouvons commencer à usiner à l'aide de râpes à bois les chanfreins pour approfondir ces derniers.</p>
-<p>Ce fut aussi pour moi l'occasion d'agrandir les cavités des micros, me permettant alors leur déconnexion ou remplacement de manière indépendante.</p>
+<div class="step-text reveal">
+    <p>As a first experience in lutherie, electronics and finishing, this project was my
+    training ground for the many crafts an electric guitar calls upon. Beyond the look I was
+    after, my greatest satisfaction is being able to fully modify, customise and even maintain
+    my own instrument — entirely on my own.</p>
 </div>
 
-<figure class="img-cap">
-<!-- \images\sg_reference.jpg -->
-<img src="images/original bevels.jpeg" alt="Corne gauche d'une SG similaire">
-<figcaption>Corne gauche d'une SG similaire à la mienne&nbsp;: Nous pouvons voir que les chanfreins sont là et atténuent.<br>
-<a href="https://www.music-guitars.fr/gibson-sg-standard-a-trans-ebony-p-paf-pro-dimarzio-years-2-anos-a-trans-ebony.html" target="_blank">music-guitars.fr</a></figcaption>
-</figure>
-</div>
-
-<!-- ======================================================= -->
-<div class="three-col">
-
-<figure class="img-cap">
-<img src="images/1961 sg horns and bevels.jpeg" alt="Cornes gauche de deux modèles de 1961">
-<figcaption>Cornes gauche de deux modèles de 1961<br>
-<a href="https://www.premierguitar.com/guitars/electric-guitars/gibson-sg-standard-2-anos-a-trans-ebony" target="_blank">premierguitar.com</a></figcaption>
-</figure>
-
-<div class="step-text" style="margin-bottom:20px;">
-<p>Une fois les contours redessinés, le corps de la guitare est repeint à l'aide d'une couche primaire, trois couches de peinture ainsi qu'une couche de vernis.</p>
-<p>Visuellement, la guitare est désormais plus fidèle au modèle de 1961, cependant, un détail manque. En effet, de par leur utilisation, leur stockage ou les climats auxquels elles étaient exposées, ces guitares des années 1960 ont vieilli. Même pour les mieux conservées d'entre elles, les mêmes phénomènes surgissant au niveau du vernis, de l'accastillage ou des plastiques.</p>
-</div>
-
-<figure class="img-cap">
-<img src="images/bevels finish and unfinished.jpeg" alt="Vue de côté des chanfreins d'une véritable SG de 1961">
-<figcaption>Vue de côté des chanfreins d'une véritable SG de 1961<br>
-<a href="https://equipboard.com/items/gibson-sg-les-paul" target="_blank">equipboard.com</a></figcaption>
-</figure>
-
-</div>
-
-
-
-<!-- ================================================  -->
-
-<!-- =========================
-ÉTAPE 2 : Vieillissement artificiel
-========================= -->
-
-<div class="step-title">
-<h2>Etape 2&nbsp;:</h2>
-<span class="step-sub">Vieillissement artificiel</span>
-</div>
-
-<div class="three-col">
-<figure class="img-cap">
-<!-- \images\sg_aged.jpg -->
-<img src="images/sg perso actuelle.jpeg" alt="Ma SG une fois achevée">
-<figcaption>Ma SG une fois achevée</figcaption>
-</figure>
-
-<div class="step-text">
-<p>Pour répliquer les cicatrices du temps, je me suis inspiré de plusieurs modèles trouvés sur le net, cependant, c'est dans le livre <em>«&nbsp;Guitare, un art de vivre&nbsp;»</em> que j'ai trouvé ma principale inspiration&nbsp;: la SG de Louis Bertignac.</p>
-<p>J'ai donc commencé par endommager le vernis et la peinture du corps pour simuler une usure excessive. Le placage ou l'accastillage en contact avec la main est effacé pour mieux reproduire l'action de la sueur sur l'or. Les boutons de volume et tonalités sont remplacés par un format historiquement correct pour l'époque.</p>
-</div>
-
-<figure class="img-cap">
-<!-- \images\sg_bertignac.jpg -->
-<img src="images/sg bertignac.png" alt="Gibson SG Junior de 1962 – Louis Bertignac">
-<figcaption>Gibson SG Junior de 1962 – Louis Bertignac<br>
-<a href="https://www.guitarworld.fr/louis-bertignac-sg-junior" target="_blank">guitarworld.fr</a></figcaption>
-</figure>
-</div>
-
-<!-- ================================================  -->
-
-
-
-
-<div class="three-col">
-
-<figure class="img-cap">
-<img src="images/craquage output jack.jpg" alt="Craquelures autour de la sortie Jack">
-<figcaption>Vue rapprochée des craquelures autour de la sortie Jack</figcaption>
-</figure>
-
-<div class="step-text" style="margin-bottom:24px;">
-<p>Il ne reste plus qu'à reproduire le craquage du vernis nitrocellulose présent sur toutes les guitares vintage. Je prends pour modèle encore une fois une SG standard de 1961.</p>
-<p>Pour réaliser le craquage, je tente de reproduire les motifs 
-    aléatoires des craquelures sur l'ensemble du corps et la tête du manche. 
-    Je vais faire converger les craquelures vers les points les plus sensibles 
-    à savoir&nbsp;: la sortie Jack 6,35, les potentiomètres ainsi que les vis.
-</p>
-<figure class="img-cap" >
-<img src="images/craquage headstock.jpg" alt="Craquelures sur la tête de manche">
-<figcaption>Vue rapprochée des craquelures de la tête de manche</figcaption>
-</figure>
-<p>Je me suis aussi inspiré du travail de l'artisan Michaël Boudoux (Relic'Art Guitars) pour vieillir cet instrument.</p>
-</div>
-
-<figure class="img-cap">
-<img src="images/1961 sg.jpeg" alt="Gibson SG Standard 1961">
-<figcaption>Gibson SG Standard 1961 – référence</figcaption>
-</figure>
-</div>
-
-
-
-
-<!-- Photo concert pleine largeur -->
-<figure class="img-cap" style="margin: 30px 0;">
-<!-- \images\sg_concert.jpg -->
-<img src="images/sg_hero.jpeg" alt="Vue d'ensemble de la guitare au concert à Cap">
-<figcaption>Vue d'ensemble de la guitare | Concert à Cap<br>Découverte | "Hook For Xmas" | Décembre 2021</figcaption>
-</figure>
-
-<div class="step-text" style="margin-top:20px;">
-<p>Comme première expérience dans la lutherie, l'électronique et la peinture, ce projet m'a servi de support pour m'exercer sur les nombreux domaines auxquels la guitare électrique fait appel. Au delà de l'aspect visuel que je recherchais, ma plus grande satisfaction fut de pouvoir entièrement modifier, personnaliser et même faire de la maintenance sur mon propre instrument et ceux, en autonomie.</p>
-</div>
+<!-- NEXT PROJECT -->
+<section class="contact-band reveal">
+    <span class="kicker">Next project</span>
+    <h2>Folk-Bucker</h2>
+    <p>An electric guitar pickup… inside an acoustic folk guitar.</p>
+    <div class="contact-actions">
+        <a class="btn btn-primary" href="project2.html">Read the story →</a>
+    </div>
+</section>
 
 </main>
 
-<!-- =========================
-FOOTER
-========================= -->
-
-<footer>
-<div class="footer-logo">
-<img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
-<strong>Matéo VITALONE</strong>
-</div>
-<div class="footer-icons">
-<a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank">
-<img src="icons/linkedinlogo.webp" alt="LinkedIn">
-</a>
-<a href="https://github.com/MateoVTLN?tab=repositories" target="_blank">
-<img src="icons/githublogo.png" alt="GitHub">
-</a>
-</div>
-<p>Matéo Vitalone Portfolio GitHub page, updated in March 2026</p>
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-logo">
+                <img src="icons/logo_mv-removebg-preview.png" alt="MV logo" class="logo-img">
+                <strong>Matéo VITALONE</strong>
+            </div>
+            <div class="footer-icons">
+                <a href="https://www.linkedin.com/in/mat%C3%A9o-vitalone-715920336" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="icons/linkedinlogo.webp" alt="LinkedIn"></a>
+                <a href="https://github.com/MateoVTLN?tab=repositories" target="_blank" rel="noopener" aria-label="GitHub"><img src="icons/githublogo.png" alt="GitHub"></a>
+                <a href="https://www.strava.com/athletes/159947739" target="_blank" rel="noopener" aria-label="Strava"><img src="icons/strava_logo.png" alt="Strava"></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="biblio.html">About me</a>
+            <a href="academic.html">Academic work</a>
+            <a href="sport.html">Sport</a>
+        </div>
+        <div class="footer-col">
+            <h4>Projects</h4>
+            <a href="project1.html">SG Custom</a>
+            <a href="project2.html">Folk-Bucker</a>
+            <a href="project3.html">Sustainer</a>
+        </div>
+    </div>
+    <p class="footer-note">© 2026 Matéo Vitalone · Static site hosted on GitHub Pages · Updated July 2026</p>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
