@@ -33,7 +33,13 @@ def get_access_token():
         "refresh_token": os.environ["STRAVA_REFRESH_TOKEN"],
         "grant_type":    "refresh_token",
     })
-    auth.raise_for_status()
+    if auth.status_code != 200 or "access_token" not in auth.json():
+        # Strava's error body never contains secrets, so it is safe to print.
+        print(f"::error::Strava token refresh failed (HTTP {auth.status_code}): {auth.text}")
+        print("Most likely the STRAVA_REFRESH_TOKEN secret is no longer valid "
+              "(revoked or re-authorized app). Regenerate it and update the "
+              "repository secret — see STRAVA_SETUP.md.")
+        raise SystemExit(1)
     return auth.json()["access_token"]
 
 
@@ -46,7 +52,10 @@ def fetch_all_activities(headers):
             headers=headers,
             params={"per_page": 200, "page": page},
         )
-        resp.raise_for_status()
+        if resp.status_code != 200:
+            print(f"::error::Fetching activities page {page} failed "
+                  f"(HTTP {resp.status_code}): {resp.text[:500]}")
+            raise SystemExit(1)
         batch = resp.json()
         if not batch:
             break
