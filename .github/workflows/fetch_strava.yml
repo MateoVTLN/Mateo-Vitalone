@@ -1,9 +1,27 @@
+# Strava API fetch — requires a PAID Strava subscription.
+#
+# Since mid-2026 Strava restricts API access to subscribers, so this workflow
+# fails ("Application Status: Inactive") on a free account. The scheduled
+# trigger below is therefore DISABLED to avoid daily failure emails.
+#
+# WHEN YOU SUBSCRIBE:
+#   1. Re-check the three STRAVA_* repository secrets are valid
+#      (see STRAVA_SETUP.md), then
+#   2. uncomment the `schedule:` block below to run automatically 4×/day.
+#
+# WITHOUT a subscription, use the free export importer instead:
+#   see STRAVA_EXPORT_IMPORT.md + import_strava_export.py
+#
+# You can still trigger this manually (Actions → Run workflow) at any time,
+# e.g. to test right after subscribing.
+
 name: Fetch Strava Activities
 
 on:
-  schedule:
-    - cron: "0 6 * * *"
   workflow_dispatch:
+  # Re-enable once subscribed — runs at 05:00, 11:00, 17:00, 23:00 UTC (4×/day):
+  # schedule:
+  #   - cron: "0 5,11,17,23 * * *"
 
 jobs:
   fetch:

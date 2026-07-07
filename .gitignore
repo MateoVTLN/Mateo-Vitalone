@@ -1,0 +1,18 @@
+# Strava bulk export — private personal data, must NEVER be committed.
+# Unzip and run import_strava_export.py against it locally; commit only activities.json.
+export*/
+*export*.zip
+strava_export/
+activities/
+*.fit
+*.fit.gz
+*.gpx.gz
+*.tcx.gz
+
+# Python
+__pycache__/
+*.pyc
+
+# OS noise
+.DS_Store
+Thumbs.db
