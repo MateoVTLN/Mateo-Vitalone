@@ -124,13 +124,30 @@ def is_present(epoch, starts):
 
 
 # ── Garmin login (lazy import so the file loads without the package) ───────
+def _save_token(g):
+    """Persist the login token. garminconnect exposes garth differently across
+    versions, so try the known variants and don't crash if none work."""
+    import garth
+    for save in (lambda: g.garth.dump(TOKENSTORE),      # per-instance client
+                 lambda: garth.save(TOKENSTORE),        # module-level client
+                 lambda: garth.client.dump(TOKENSTORE)):
+        try:
+            save()
+            print(f"Login token saved to {TOKENSTORE}/ — next runs won't log in again.")
+            return True
+        except Exception:                  # noqa: BLE001 — try the next variant
+            continue
+    return False
+
+
 def login():
     try:
         from garminconnect import Garmin
     except ImportError:
         sys.exit("The 'garminconnect' package is required:  pip install garminconnect")
 
-    try:                                   # reuse a saved token if we have one
+    # 1) reuse a saved token if we have one — no network login, so no rate limit
+    try:
         g = Garmin()
         g.login(TOKENSTORE)
         print("Logged in to Garmin (reused saved token).")
@@ -138,13 +155,27 @@ def login():
     except Exception:                      # noqa: BLE001 — fall back to fresh login
         pass
 
+    # 2) fresh interactive login (handles 2FA)
     email = os.environ.get("GARMIN_EMAIL") or input("Garmin email: ")
     password = os.environ.get("GARMIN_PASSWORD") or getpass.getpass("Garmin password: ")
     g = Garmin(email=email, password=password,
                prompt_mfa=lambda: input("Garmin 2FA code: "))
-    g.login()
-    g.garth.dump(TOKENSTORE)
-    print(f"Logged in; token saved to {TOKENSTORE}/ for next time.")
+    try:
+        g.login()
+    except Exception as exc:               # noqa: BLE001
+        msg = str(exc)
+        if "429" in msg or "rate" in msg.lower():
+            sys.exit("\nGarmin is rate-limiting your IP (HTTP 429) after too many "
+                     "login attempts.\nWait ~30-60 minutes, then run this ONCE more. "
+                     "After the first success the token is saved and no further "
+                     "logins are needed.")
+        raise
+
+    # 3) persist the token so we never have to log in (and risk a 429) again.
+    #    Even if saving fails, keep going — this run still fetches your data.
+    if not _save_token(g):
+        print("! Could not save the login token (harmless): this run works, but you "
+              "may be prompted to log in again next time.")
     return g
 
 
