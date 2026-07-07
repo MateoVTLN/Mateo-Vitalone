@@ -9,6 +9,9 @@ activities/
 *.gpx.gz
 *.tcx.gz
 
+# Garmin Connect login token (fetch_garmin.py) — never commit
+.garmin_tokens/
+
 # Python
 __pycache__/
 *.pyc
