@@ -46,3 +46,28 @@ different scopes). Regenerate it:
 
 The first successful run backfills the **entire** activity history into
 `activities.json`; the daily 06:00 UTC runs then keep it fresh.
+
+## Error: "Application Status: Inactive" (HTTP 403)
+
+If the *"python fetch_activities.py"* step prints:
+
+```
+Fetching activities page 1 failed (HTTP 403):
+{"message":"Forbidden","errors":[{"resource":"Application","field":"Status","code":"Inactive"}]}
+```
+
+this is **not** a token problem — the token works, but Strava has marked the
+whole API **application** as inactive, so every request is refused. Strava
+usually deactivates an app by e-mail notification (check spam), sometimes after
+an API-agreement or rate-limit issue.
+
+Fix:
+
+1. Open **https://www.strava.com/settings/api** and look for a status / message
+   explaining the deactivation; check your e-mail for a Strava notice.
+2. If it can be **reactivated** from that page or by replying to Strava, do so —
+   nothing else needs changing, just re-run the workflow.
+3. If it is stuck, **create a new API application** (new apps are active
+   immediately) and update all three repository secrets: `STRAVA_CLIENT_ID`,
+   `STRAVA_CLIENT_SECRET`, and a fresh `STRAVA_REFRESH_TOKEN` (redo the OAuth
+   flow above with the new Client ID).
