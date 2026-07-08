@@ -124,22 +124,6 @@ def is_present(epoch, starts):
 
 
 # ── Garmin login (lazy import so the file loads without the package) ───────
-def _save_token(g):
-    """Persist the login token. garminconnect exposes garth differently across
-    versions, so try the known variants and don't crash if none work."""
-    import garth
-    for save in (lambda: g.garth.dump(TOKENSTORE),      # per-instance client
-                 lambda: garth.save(TOKENSTORE),        # module-level client
-                 lambda: garth.client.dump(TOKENSTORE)):
-        try:
-            save()
-            print(f"Login token saved to {TOKENSTORE}/ — next runs won't log in again.")
-            return True
-        except Exception:                  # noqa: BLE001 — try the next variant
-            continue
-    return False
-
-
 def login():
     try:
         from garminconnect import Garmin
@@ -155,27 +139,25 @@ def login():
     except Exception:                      # noqa: BLE001 — fall back to fresh login
         pass
 
-    # 2) fresh interactive login (handles 2FA)
+    # 2) fresh interactive login (handles 2FA). Passing TOKENSTORE makes
+    #    garminconnect persist the token itself (self.client.dump) after a
+    #    successful login, so later runs resume from step 1 without logging in.
+    os.makedirs(TOKENSTORE, exist_ok=True)
     email = os.environ.get("GARMIN_EMAIL") or input("Garmin email: ")
     password = os.environ.get("GARMIN_PASSWORD") or getpass.getpass("Garmin password: ")
     g = Garmin(email=email, password=password,
                prompt_mfa=lambda: input("Garmin 2FA code: "))
     try:
-        g.login()
+        g.login(TOKENSTORE)
     except Exception as exc:               # noqa: BLE001
-        msg = str(exc)
-        if "429" in msg or "rate" in msg.lower():
+        msg = str(exc).lower()
+        if "429" in msg or "too many" in msg or "rate" in msg:
             sys.exit("\nGarmin is rate-limiting your IP (HTTP 429) after too many "
-                     "login attempts.\nWait ~30-60 minutes, then run this ONCE more. "
-                     "After the first success the token is saved and no further "
-                     "logins are needed.")
+                     "login attempts.\nWait, and ideally retry from a different "
+                     "network (phone hotspot = fresh IP). After ONE success the "
+                     "token is saved and no further logins are needed.")
         raise
-
-    # 3) persist the token so we never have to log in (and risk a 429) again.
-    #    Even if saving fails, keep going — this run still fetches your data.
-    if not _save_token(g):
-        print("! Could not save the login token (harmless): this run works, but you "
-              "may be prompted to log in again next time.")
+    print(f"Logged in. Token saved to {TOKENSTORE}/ — future runs won't log in again.")
     return g
 
 
@@ -191,7 +173,9 @@ def to_entry(g, act):
 
     poly = ""
     try:
-        det = g.get_activity_details(aid, maxchart=0, maxpoly=MAX_POLYLINE_POINTS)
+        # maxchart must be a POSITIVE int in this version (0 raises); we don't
+        # use chart data, so ask for the minimum. maxpoly caps the route points.
+        det = g.get_activity_details(aid, maxchart=1, maxpoly=MAX_POLYLINE_POINTS)
         pts = (det.get("geoPolylineDTO") or {}).get("polyline") or []
         coords = [(p["lat"], p["lon"]) for p in pts
                   if p.get("lat") is not None and p.get("lon") is not None]
