@@ -11,7 +11,8 @@ activities/
 
 # Garmin Connect login token (fetch_garmin.py) — never commit
 .garmin_tokens/
-
+STRAVA_EXPORT_IMPORT.md
+STRAVA_SETUP.md
 # Python
 __pycache__/
 *.pyc
