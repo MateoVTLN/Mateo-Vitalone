@@ -290,7 +290,6 @@ const carouselMedia = [
         const dist  = allActivities.reduce((s, a) => s + (a.distance || 0), 0);
         const time  = allActivities.reduce((s, a) => s + (a.moving_time || 0), 0);
         const elev  = allActivities.reduce((s, a) => s + (a.total_elevation_gain || 0), 0);
-        const kudos = allActivities.reduce((s, a) => s + (a.kudos_count || 0), 0);
         const since = allActivities.length
             ? new Date(allActivities[allActivities.length - 1].start_date).getFullYear()
             : "";
@@ -304,9 +303,7 @@ const carouselMedia = [
             <div class="stat-tile"><div class="stat-label">Moving time</div>
                 <div class="stat-value">${Math.floor(time / 3600).toLocaleString("en")}<small>h</small></div></div>
             <div class="stat-tile"><div class="stat-label">Elevation gain</div>
-                <div class="stat-value">${Math.round(elev).toLocaleString("en")}<small>m</small></div></div>
-            <div class="stat-tile"><div class="stat-label">Kudos received</div>
-                <div class="stat-value">${kudos.toLocaleString("en")}</div></div>`;
+                <div class="stat-value">${Math.round(elev).toLocaleString("en")}<small>m</small></div></div>`;
     }
 
     /* ── Records ── */
@@ -416,7 +413,6 @@ const carouselMedia = [
                 </div>
                 <div class="row-extra">
                     ${photos ? `<span class="photo-dot">📷 ${photos}</span>` : ""}
-                    ${a.kudos_count ? `<span>👍 ${a.kudos_count}</span>` : ""}
                 </div>
             </div>`;
         }).join("");
@@ -462,7 +458,6 @@ const carouselMedia = [
             a.total_elevation_gain ? ["Elevation", `${Math.round(a.total_elevation_gain)} m`] : null,
             a.average_heartrate ? ["Avg HR", `${Math.round(a.average_heartrate)} bpm`] : null,
             a.max_heartrate ? ["Max HR", `${Math.round(a.max_heartrate)} bpm`] : null,
-            a.kudos_count ? ["Kudos", a.kudos_count] : null,
         ].filter(Boolean);
         document.getElementById("modal-stats").innerHTML = stats.map(([l, v]) =>
             `<div class="modal-stat"><div class="ms-label">${l}</div><div class="ms-value">${v}</div></div>`).join("");
