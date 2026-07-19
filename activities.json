@@ -1,5 +1,71 @@
 [
  {
+  "id": 23641189418,
+  "name": "Cremona Course à pied",
+  "distance": 4335.3,
+  "moving_time": 1119,
+  "elapsed_time": 1127,
+  "total_elevation_gain": 9.0,
+  "type": "Run",
+  "sport_type": "Run",
+  "start_date": "2026-07-17T18:55:41Z",
+  "average_speed": 3.846,
+  "max_speed": 4.796000003814697,
+  "average_heartrate": 171.0,
+  "max_heartrate": 183.0,
+  "kudos_count": 0,
+  "total_photo_count": 0,
+  "map": {
+   "summary_polyline": "gsorGmfc|@DBGGIy@@WEgBByAEwAL_@@u@Eg@FITk@BWDeDJyBFS?IIc@D}@Jo@d@kALe@HQDUDeARw@Js@`@iAFYHgAR}@h@gAH]`@iAT_@VyBRo@ASD_@^c@PYLi@^o@v@aCzAaCTSrAcB^u@r@oB^q@\\g@ViAL_@LsAPeAjA_ExFPf@GTIP?l@[ZArAJvKi@HKNE`ADJBANFJJD~@F@RLh@VRVJh@NX@JBBCLNJDD?C^DD?LBH?GTIb@EHB?P@@PGb@BJBFFRf@Jz@A|@B\\L\\@HPPD@FFFJHVD\\CNKJGLJr@CLILGNKpA[z@@z@CRKDEFQlBYJQXSj@a@`BKJOHEJM~@U~@INDF?\\?h@K~@@r@Gd@MzAMt@G~AHHHZAPDt@j@f@FLLHDLBXBp@Cn@[zAMdA?b@Bb@CZQn@Yh@IZY^I`BU^IXc@n@Wf@m@tAGZm@fAENQTU`@MJa@t@_@\\_@b@q@DYP{@Uc@PiAZG@]?q@N"
+  },
+  "photos_urls": [],
+  "source": "garmin"
+ },
+ {
+  "id": 23563594494,
+  "name": "Cremona Course à pied",
+  "distance": 10021.5,
+  "moving_time": 2639,
+  "elapsed_time": 2846,
+  "total_elevation_gain": 21.0,
+  "type": "Run",
+  "sport_type": "Run",
+  "start_date": "2026-07-11T19:34:50Z",
+  "average_speed": 3.788,
+  "max_speed": 5.579999923706055,
+  "average_heartrate": 171.0,
+  "max_heartrate": 189.0,
+  "kudos_count": 0,
+  "total_photo_count": 0,
+  "map": {
+   "summary_polyline": "qlnrG{af|@XiLL[Ao@BUFI`@ArA^h@FBDz@HdCEdBLbA?nBPp@OXUDYTQ\\MVL?LHPRABMT\\JFdANX?Jr@JFb@r@N~Bj@rAP`AFJL?b@\\r@~@jFoKz@[n@u@rAeC|@uB`@q@VUxA{@ZEFJLACLFBGBAIIEGUjAkAVi@h@m@tD}HPOAJR[pA_AFUjEoF~@s@x@_@pDu@x@]nAWjCw@\\GnDE|@]^ATFbBdBdGfDtBtBbBfAh@Vb@FxAf@jAR^Rv@x@`A`BZZj@Lv@Cp@FbDfBf@b@^Ll@E\\c@j@a@tAoBjD{HL_@Bg@R}@LWNKzAn@|AbAvBvB`@Z^FBFD_AL]p@DDINwAh@_DtAkDb@uA^i@t@IZFzAf@rBnAvBt@dCjAbA^nKvEhB`AZVvAdBT`@CDHRfA|AhCvBrBdDBNSBoAMmCLsBRyBb@qCpAmInEw@t@oAnBiD|HeDzFc@~Cy@p@aCn@qBt@m@Fe@?oAV_EL}CG_Dj@_Gj@m@X]ZsAl@oBhAoCnAmAb@eEfAiBPyCp@eAh@_@Z[f@Yz@aBzG}@tBuDjF_C~BeDlFoDjK{AzFiAnCuA`EaAnBaA~Ay@bAsA|CuCdKm@zCaBnF{@nEQpAQ`@MBe@u@mAm@_B_Co@iAy@y@e@eA_AsAOw@SYw@{BqB}D"
+  },
+  "photos_urls": [],
+  "source": "garmin"
+ },
+ {
+  "id": 23551180605,
+  "name": "Corde à sauter",
+  "distance": 0.0,
+  "moving_time": 715,
+  "elapsed_time": 3543,
+  "total_elevation_gain": 0.0,
+  "type": "JumpRope",
+  "sport_type": "JumpRope",
+  "start_date": "2026-07-10T18:28:01Z",
+  "average_speed": null,
+  "max_speed": null,
+  "average_heartrate": 138.0,
+  "max_heartrate": 184.0,
+  "kudos_count": 0,
+  "total_photo_count": 0,
+  "map": {
+   "summary_polyline": ""
+  },
+  "photos_urls": [],
+  "source": "garmin"
+ },
+ {
   "id": 23457347865,
   "name": "HIIT",
   "distance": 0.0,
